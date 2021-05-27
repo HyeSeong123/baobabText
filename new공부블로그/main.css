@@ -87,6 +87,10 @@ ul,li,body{
     position : relative;
     height : 100%;
   }
+  .top-bar__top-menu-bar ul > li:hover{
+    background-color: #504d4d1a;
+    transition : 0.5s;
+  }
   .top-bar__top-menu-bar > ul li a{
     width : 100%;
     padding : 10px 0;
@@ -122,8 +126,18 @@ ul,li,body{
   }
   
   /* 메인 시작 */
-  .main__image1{
-    background-image : url("https://word-class.com/wp-content/uploads/2014/01/iStock_000010326584Medium-1024x664.jpg")  
+  .main__background{
+   height: 420px;
+   background-color: #f9d29d;
+   background-image: linear-gradient(315deg, #F6C1F2 0%, #ffd8cb 74%);
+  }
+  .main__background > div > span{
+    display : block; 
+  }
+  .main__background > div > .main__sentence{
+    font-size: 60px;
+    color: white;
+
   }
   /* 메인 끝 */
 
