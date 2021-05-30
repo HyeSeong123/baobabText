@@ -5,87 +5,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../new공부블로그/main.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+    <!-- 구글 폰트 -->
 </head>
 
 <body>
     <div class="body-content con-min-width">
-        <header class="top-bar con flex height-100p">
-            <a href="#" class="top-bar__logo height-100p">
-                <div class="flex-column flex flex-jc-c height-100p">
-                    <div class="top-bar__logoS">Web Program Blog</div>
-                    <div class="top-bar__logoB">바오밥 공부 블로그</div>
+        <header class="top-bar con height-100p">
+            <div class="main__banner-cover height-100p">
+                <div class="main__banner">
+                    <div class="flex flex-ai-c top-menu">
+                        <section class="top-bar__logo flex-jc-c">
+                            <div>
+                                <span>R e c o r d</span>
+                                <span>Web Program Blog</span>
+                            </div>
+                        </section>
+                        
+                        <div class="flex-grow-1"></div>
+                        <!-- 탑바 PC 버전 -->
+                        <div class="top-menu__menu top-menu__pc-menu flex height-100p">
+                            <ul class="flex height-100p">
+                                <li>
+                                    <a href="#">Web Programs</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Java</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">JavaScript</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Spring</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">DataBase</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">MySql</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">Linux</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">CentOs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">Free</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hamburger__cover flex">
+                            <section class="top-bar__hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </section>
+                        </div>  
+                    </div>
+                    <!-- 탑바 모바일 버전 -->
+                    <div class="top-menu__menu top-menu__mobile-menu">
+                        <ul class="flex flex-column">
+                            <li>
+                                <a href="#">
+                                    <span>Web Programs</span>
+                                    <span class="arrow-down"></span>
+                                </a>
+                                <ul class="height-100p">
+                                    <li>
+                                        <a href="#">Java</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">JavaScript</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Spring</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>DataBase</span> 
+                                    <span class="arrow-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#">MySql</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>Linux</span>
+                                    <span class="arrow-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#">CentOs</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span>Free</span>
+                                    <span class="arrow-down"></span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#">Daily</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </a>
-
-            <div class="top-bar__top-menu-bar">
-                <ul class="flex height-100p">
-                    <li>
-                        <a href="#">Web Programs</a>
-                        <ul>
-                            <li>
-                                <a href="#">Java</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Web</a>
-                            </li>
-
-                            <li>
-                                <a href="#">jsp</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#">DataBase</a>
-                        <ul>
-                            <li><a href="#">MySQL</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#">Linux</a>
-                        <ul>
-                            <li><a href="#">CentOS</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#">Free</a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="top-bar__sns-logo flex flex-ai-c">
-                <ul>
-
-                    <li>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </li>
-
-                </ul>
-
             </div>
         </header>
 
         <main class="flex-grow-1">
-            <section class="main__background">
-                <div class="flex flex-ai-c flex-jc-c height-100p">
-                    <span class="main__sentence">예쁜 문구를 추천해주세요</span>
-                </div>
-            </section>
+                
         </main>
 
         <footer class="footer__cover flex flex-ai-c flex-jc-c">
-            <section>
-                <div class="footer__logoS">Web Program Blog</div>
-                <div class="footer__logoB">바오밥 공부 블로그</div>
-            </section>
+            
         </footer>
 
     </div>
 </body>
 
+<script>
+    $(document).ready(function(){
+	$('.top-bar__hamburger').click(function(){
+		$(this).toggleClass('open');
+        if(screen.width > 768){
+            $('.top-menu__pc-menu').toggleClass('open');
+        }
+        if(screen.width > 320 && screen.width < 768){
+            $('.top-menu__mobile-menu').toggleClass('open');
+        }
+	});
+});
+var subOpenToggle = 0;
+ $('.top-menu__mobile-menu > ul > li > a').click(function(){
+     var height;
+    if($(this).text().indexOf('Web Programs') != -1){
+        height = 180;
+    } else if($(this).text().indexOf('DataBase') != -1){
+        height = 60;
+    } else if($(this).text().indexOf('Linux') != -1){
+        height = 60;
+    } else if($(this).text().indexOf('Free') != -1){
+        height = 60;
+    }
+    $(this).closest('ul>li').toggleClass('subOpen');
+    if($(this).parent().hasClass('subOpen')){
+        $(this).parent().children('ul').css('height', height);
+        subOpenToggle = 1;
+        console.log(subOpenToggle);
+    } else if($(this).parent().hasClass('subOpen') == false){
+        height = 0;
+        $(this).parent().children('ul').css('height', height);
+        subOpenToggle = 0;
+        console.log(height);
+        console.log(subOpenToggle);
+    }
+ });
+</script>
 </html>
