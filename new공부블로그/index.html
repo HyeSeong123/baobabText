@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../new공부블로그/main.css">
@@ -22,7 +22,7 @@
                 <div class="main__banner">
                     <div class="flex flex-ai-c top-menu">
                         <section class="top-bar__logo flex-jc-c">
-                            <div>
+                            <div class="logo">
                                 <span>R e c o r d</span>
                                 <span>Web Program Blog</span>
                             </div>
@@ -57,7 +57,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">Linux</a>
+                                    <a href="#">Server</a>
                                     <ul>
                                         <li>
                                             <a href="#">CentOs</a>
@@ -79,6 +79,15 @@
                             </section>
                         </div>  
                     </div>
+
+                    <section class="main__banner-logo">
+                        <strong>MueonGa It a Boineun English Insert Hagoeata<br>
+                        John Mattang Macarong And Ice-Cream<br>
+                        One Day He Said Yieaback ueimee But I Said, I Want DuDuDunGa<br>
+                        What Do You Think About This Sentence. <br>
+                        This is Just a stream of consciousness. Nothing more, nothing less OK?
+                        </strong>
+                    </section>
                     <!-- 탑바 모바일 버전 -->
                     <div class="top-menu__menu top-menu__mobile-menu">
                         <ul class="flex flex-column">
@@ -141,12 +150,32 @@
             </div>
         </header>
 
-        <main class="flex-grow-1">
-                
+        <main class="flex flex-grow-1">
+            본문
         </main>
 
-        <footer class="footer__cover flex flex-ai-c flex-jc-c">
+        <footer class="footer__cover flex flex-ai-c">
+
             
+            <section class="footer__icon">
+                <a href="#">
+                    <span class="icon-git"><i class="fab fa-github-square"></i></span>
+                </a>
+                <a href="#">
+                    <span class="icon-insta"><i class="fab fa-instagram-square"></i></span>
+                </a>
+                <a href="">
+                    <span class="icon-blog"><i class="fab fa-blogger"></i></span>
+                </a>
+            </section>
+
+            <section class="footer__host flex flex-jc-end">
+                <div>
+                    <span>Blog-Host</span>
+                    <span>B a o B a b</span>
+                </div>
+            </section>
+
         </footer>
 
     </div>
@@ -156,10 +185,12 @@
     $(document).ready(function(){
 	$('.top-bar__hamburger').click(function(){
 		$(this).toggleClass('open');
-        if(screen.width > 768){
+        
+        console.log("innerWidth= " + window.innerWidth);
+        if(window.innerWidth > 900){
             $('.top-menu__pc-menu').toggleClass('open');
         }
-        if(screen.width > 320 && screen.width < 768){
+        else if(window.innerWidth > 320 && window.innerWidth < 900){
             $('.top-menu__mobile-menu').toggleClass('open');
         }
 	});

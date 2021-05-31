@@ -7,6 +7,10 @@ ul,li,body{
     color : inherit;
     text-decoration : none;
   }
+  html,body{
+    max-width: 100%;
+    overflow-x : hidden;
+  }
   .con{
     max-width : 1960px;
     width :100%;
@@ -34,6 +38,9 @@ ul,li,body{
   }
   .flex-jc-st{
     justify-content: flex-start;
+  }
+  .flex-jc-end{
+    justify-content: flex-end;
   }
   .flex-ai-c{
     align-items : center;
@@ -71,25 +78,25 @@ ul,li,body{
     background-position: left top;
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 700px;
+    height: 650px;
   }
   .top-bar .top-bar__logo{
     color: white;
     margin-left: 15px;
     width:350px;
   }
-  .top-bar .top-bar__logo > div{
+  .logo > div{
     cursor: pointer;
   }
-  .top-bar .top-bar__logo > div > span:first-child{
+  .logo span:first-child{
     font-family: 'Pattaya', sans-serif;
     font-size: 20px;
   }
-  .top-bar .top-bar__logo > div > span:last-child{
+  .logo span:last-child{
     font-size: 20px;
     font-family: 'Lora', serif;
   }
-  .top-bar .top-bar__logo > div > span{
+  .logo > span{
     display : block;
     text-align: center;
   }
@@ -238,17 +245,27 @@ ul,li,body{
     width : 40%;
     left : 30%;
   }
-
-  @media (min-width:320px) and (max-width:768px){
+  .top-menu__mobile-menu{
+    display : none;
+  }
+  .main__banner-logo{
+    position : absolute;
+    color:  white;
+    left : 60%;
+    top : calc( 50% - 100px) ;
+    transform: translate( -60%, -50%);
+  }
+  @media (min-width:320px) and (max-width:900px){
     .top-menu,
     .top-bar{
       height : 60px;  
     }
-    .main__banner{
-      height: 265px;
-    }
     .top-menu__pc-menu{
       display : none;
+    }
+    .top-menu__mobile-menu{
+      display : block;
+      overflow-x: hidden;
     }
     .top-bar .top-bar__logo{
       width : 200px;
@@ -302,10 +319,43 @@ ul,li,body{
   /* 탑 바 끝 */
 
   /* 메인 시작 */
-
+  main{
+    margin-top : 570px;
+  }
   /* 메인 끝 */
 
   /* 푸터 시작 */
- 
+ .footer__cover{
+   height : 70px;
+   background-color : black;
+ }
+ .footer__cover > section{
+  width : 100%;
+ }
+ .footer__cover > .footer__icon{
+  font-size : 40px;
+  color : white;
+  margin-left: 20px;
+}
+.footer__cover > .footer__icon > a{
+  margin-left : 20px;
+}
+.footer__host{
+  color : white;
+  text-align: right;
+}
+.footer__host > div{
+  width : 20%;
+  text-align: center;
+}
+.footer__host > div > span{
+  display : block;
+}
+.footer__host > div > span:first-child{
+  font-size : 15px;
+}
+.footer__host > div > span:last-child{
+  font-size : 20px;
+}
   /* 푸터 끝 */
   /* 커스터 마이징 끝*/
