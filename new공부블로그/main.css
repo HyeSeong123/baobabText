@@ -58,6 +58,7 @@ ul,li,body{
     display : flex;
     flex-direction : column;
     min-height : 100vh;
+    position: relative;
   }
   main{
     flex-grow : 1;
@@ -75,10 +76,22 @@ ul,li,body{
   }
   .main__banner{
     background-image: url("../new공부블로그/img/2.jpg");
+    position: absolute;
+    top:0;
+    left:0;
     background-position: left top;
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 650px;
+    height: 60%;
+    width : 100%;
+  }
+  .main__banner > div {
+    justify-content: center;
+  }
+  .main__banner > div > strong {
+    color : #CCD1D5;
+    font-size : 17px;
+    margin-left : 200px;
   }
   .top-bar .top-bar__logo{
     color: white;
@@ -197,7 +210,7 @@ ul,li,body{
     opacity: 0;
     transition : all 0.8s;
   }
-  .main__banner .top-menu__pc-menu.open{
+  .top-menu__pc-menu.open{
     top:0;
   }
   .top-menu__menu ul{
@@ -248,13 +261,7 @@ ul,li,body{
   .top-menu__mobile-menu{
     display : none;
   }
-  .main__banner-logo{
-    position : absolute;
-    color:  white;
-    left : 60%;
-    top : calc( 50% - 100px) ;
-    transform: translate( -60%, -50%);
-  }
+  
   @media (min-width:320px) and (max-width:900px){
     .top-menu,
     .top-bar{
@@ -316,12 +323,22 @@ ul,li,body{
       opacity: 1;
     }
   }
+  
+  @media (min-width:200px) and (max-width:600px){
+    .main__banner{
+      background-image: url("../new공부블로그/img/mobile-2.png");
+    }
+  }
+  @media (max-width:550px){
+    .main__banner > div {
+      justify-content: flex-end;
+      margin-right : 20px;
+    }
+  }
   /* 탑 바 끝 */
 
   /* 메인 시작 */
-  main{
-    margin-top : 570px;
-  }
+  
   /* 메인 끝 */
 
   /* 푸터 시작 */
@@ -345,7 +362,7 @@ ul,li,body{
   text-align: right;
 }
 .footer__host > div{
-  width : 20%;
+  width : 350px;
   text-align: center;
 }
 .footer__host > div > span{
@@ -356,6 +373,15 @@ ul,li,body{
 }
 .footer__host > div > span:last-child{
   font-size : 20px;
+}
+
+@media (min-width:200px) and (max-width:640px){
+  .footer__icon{
+    display : none;
+  }
+  .footer__host{
+    justify-content: center;
+  }
 }
   /* 푸터 끝 */
   /* 커스터 마이징 끝*/
