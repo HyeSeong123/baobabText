@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.baobab.example.baobabTextBoard.dto.Article;
+import com.baobab.example.baobabTextBoard.dto.Board;
 import com.baobab.example.mysqlUtil.MysqlUtil;
 import com.baobab.example.mysqlUtil.SecSql;
 
@@ -83,5 +84,39 @@ public class ArticleDao {
 		sql.append("WHERE num = ?", num);
 		
 		MysqlUtil.update(sql);
+	}
+
+	public List<Board> getBoards() {
+		List<Board> boards = new ArrayList<>();
+		SecSql sql = new SecSql();
+		
+		sql.append("SELECT *");
+		sql.append("FROM board");
+		
+		List<Map<String, Object>> boardsMapList = MysqlUtil.selectRows(sql);
+		
+		for (Map<String, Object> boardMap : boardsMapList) {
+			boards.add(new Board(boardMap));
+		}
+		
+		return boards;
+	}
+
+	public List<Board> getBoardsByDepth(int depth) {
+		List<Board> boards = new ArrayList<>();
+		SecSql sql = new SecSql();
+		
+		sql.append("SELECT *");
+		sql.append("FROM board");
+		sql.append("WHERE menu_depth = ?", depth);
+		
+		List<Map<String, Object>> boardsMapList = MysqlUtil.selectRows(sql);
+		
+		for (Map<String, Object> boardMap : boardsMapList) {
+			boards.add(new Board(boardMap));
+		}
+		
+		return boards;
+		
 	}
 }

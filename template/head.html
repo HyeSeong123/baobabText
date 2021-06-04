@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+    <!-- 구글 폰트 -->
+    <title>${title-bar__content}</title>
+</head>
+
+<body>
+    <div class="body-content con-min-width">
+    	${main__banner-replace}
+        <header class="top-bar con height-100p">
+            <div class="flex flex-ai-c top-menu top-menu-NI">
+                <section class="top-bar__logo flex-jc-c">
+                    <div class="logo">
+                        <span>R e c o r d</span>
+                        <span>Web Program Blog</span>
+                    </div>
+                </section>
+                
+                <div class="flex-grow-1"></div>
+                <!-- 탑바 PC 버전 -->
+                <div class="top-menu__menu top-menu__pc-menu flex height-100p">
+                    <ul class="flex height-100p">
+                    	${menu-bar__menu-1__board-menu-content-pc}
+                    </ul>
+                </div>
+                
+                <div class="hamburger__cover flex">
+                    <section class="top-bar__hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+				</section>
+                </div>  
+            </div>
+            <!-- 탑바 모바일 버전 -->
+            <div class="top-menu__menu top-menu__mobile-menu">
+                <ul class="flex flex-column">
+                	${menu-bar__menu-1__board-menu-content-mobile}
+                </ul>
+            </div>
+        </header>

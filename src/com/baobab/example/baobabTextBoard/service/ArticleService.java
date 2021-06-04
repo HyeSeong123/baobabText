@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.baobab.example.baobabTextBoard.dao.ArticleDao;
 import com.baobab.example.baobabTextBoard.dto.Article;
+import com.baobab.example.baobabTextBoard.dto.Board;
 
 public class ArticleService {
 	private ArticleDao articleDao;
@@ -30,6 +31,14 @@ public class ArticleService {
 
 	public void doModify(int inputNum, String title, String body) {
 		articleDao.articleModify(inputNum,title,body);
+	}
+
+	public List<Board> getBoards() {
+		return articleDao.getBoards();
+	}
+
+	public List<Board> getBoardsByDepth(int depth) {
+		return articleDao.getBoardsByDepth(depth);
 	}
 
 

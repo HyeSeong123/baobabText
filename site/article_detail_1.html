@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+    <!-- 구글 폰트 -->
+    <title>article_detail</title>
+</head>
+
+<body>
+    <div class="body-content con-min-width">
+    	
+        <header class="top-bar con height-100p">
+            <div class="flex flex-ai-c top-menu top-menu-NI">
+                <section class="top-bar__logo flex-jc-c">
+                    <div class="logo">
+                        <span>R e c o r d</span>
+                        <span>Web Program Blog</span>
+                    </div>
+                </section>
+                
+                <div class="flex-grow-1"></div>
+                <!-- 탑바 PC 버전 -->
+                <div class="top-menu__menu top-menu__pc-menu flex height-100p">
+                    <ul class="flex height-100p">
+                    	<li><a href="web">Web Programs</a><ul><li><a href="java">Java</a></li><li><a href="js">JavaScript</a></li><li><a href="spring">Spring</a></li></ul></li><li><a href="db">DataBase</a><ul><li><a href="mysql">Mysql</a></li></ul></li><li><a href="server">Server</a><ul><li><a href="centos">CentOs</a></li></ul></li><li><a href="free">Free</a><ul><li><a href="daily">Daily</a></li></ul></li>
+                    </ul>
+                </div>
+                
+                <div class="hamburger__cover flex">
+                    <section class="top-bar__hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+				</section>
+                </div>  
+            </div>
+            <!-- 탑바 모바일 버전 -->
+            <div class="top-menu__menu top-menu__mobile-menu">
+                <ul class="flex flex-column">
+                	<li><a style="cursor:pointer;"><span>Web Programs</span><span class="arrow-down"></span></a><ul><li><a href="java">Java</a></li><li><a href="js">JavaScript</a></li><li><a href="spring">Spring</a></li></ul></li><li><a style="cursor:pointer;"><span>DataBase</span><span class="arrow-down"></span></a><ul><li><a href="mysql">Mysql</a></li></ul></li><li><a style="cursor:pointer;"><span>Server</span><span class="arrow-down"></span></a><ul><li><a href="centos">CentOs</a></li></ul></li><li><a style="cursor:pointer;"><span>Free</span><span class="arrow-down"></span></a><ul><li><a href="daily">Daily</a></li></ul></li>
+                </ul>
+            </div>
+        </header>번호 : 1<br>작성날짜 : 2021-05-25 21:24:52<br>갱신날짜 : 2021-05-25 22:26:50<br>제목 : 방혜성 수정 1<br>내용 : 방혜성 수정 1<br><a href="article_detail_0.html">이전글</a><br><a href="article_detail_2.html">다음글</a><br></div>        <footer class="footer__cover flex flex-ai-c">
+
+            
+            <section class="footer__icon">
+                <a href="#">
+                    <span class="icon-git"><i class="fab fa-github-square"></i></span>
+                </a>
+                <a href="#">
+                    <span class="icon-insta"><i class="fab fa-instagram-square"></i></span>
+                </a>
+                <a href="">
+                    <span class="icon-blog"><i class="fab fa-blogger"></i></span>
+                </a>
+            </section>
+
+            <section class="footer__host flex flex-jc-end">
+                <div>
+                    <span>Copyright 2021 Baobab. All Right Reserved</span>
+                    <span>B a o b a b</span>
+                </div>
+            </section>
+
+        </footer>
+
+    </div>
+</body>
+
+<script>
+    var height = $('.main__banner').innerHeight();
+    if(window.innerWidth > 900){
+        $('main').css('margin-top',height-70);
+    } else if ( window.innerWidth < 900 ) {
+        $('main').css('margin-top',height-50);
+    }
+    $(window).resize(function(){
+        height = $('.main__banner').innerHeight();
+         if(window.innerWidth > 900){
+            $('main').css('margin-top',height-70);
+        } else if ( window.innerWidth < 900 ) {
+            $('main').css('margin-top',height-50);
+        }
+    })
+    $(document).ready(function(){
+	$('.top-bar__hamburger').click(function(){
+		$(this).toggleClass('open');
+        
+        console.log("innerWidth= " + window.innerWidth);
+        if(window.innerWidth > 900){
+            $('.top-menu__pc-menu').toggleClass('open');
+        }
+        else if(window.innerWidth > 320 && window.innerWidth < 900){
+            $('.top-menu__mobile-menu').toggleClass('open');
+        }
+	});
+});
+var subOpenToggle = 0;
+ $('.top-menu__mobile-menu > ul > li > a').click(function(){
+     var height;
+    if($(this).text().indexOf('Web Programs') != -1){
+        height = 180;
+    } else if($(this).text().indexOf('DataBase') != -1){
+        height = 60;
+    } else if($(this).text().indexOf('Server') != -1){
+        height = 60;
+    } else if($(this).text().indexOf('Free') != -1){
+        height = 60;
+    }
+    $(this).closest('ul>li').toggleClass('subOpen');
+    if($(this).parent().hasClass('subOpen')){
+        $(this).parent().children('ul').css('height', height);
+        subOpenToggle = 1;
+        console.log(subOpenToggle);
+    } else if($(this).parent().hasClass('subOpen') == false){
+        height = 0;
+        $(this).parent().children('ul').css('height', height);
+        subOpenToggle = 0;
+        console.log(height);
+        console.log(subOpenToggle);
+    }
+ });
+</script>
+</html>

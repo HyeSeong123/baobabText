@@ -89,6 +89,10 @@ ul,li,body{
     height: 60%;
     width : 100%;
   }
+  .main__banner p{
+  	cursor : default;
+ 
+  }
   .main__banner > div {
     justify-content: center;
   }
@@ -208,8 +212,8 @@ ul,li,body{
   .top-menu__mobile-menu{
     position : absolute;
     width: 200px;
-    height: calc( 100% - 60px );
-    top:60px;
+    height: calc( 100% - 80px );
+    top:80px;
     right : -200px;
     opacity: 0;
     transition : all 0.8s;
@@ -265,12 +269,8 @@ ul,li,body{
   .top-menu__mobile-menu{
     display : none;
   }
-  
+  /* 탑바 반응형 */
   @media (min-width:320px) and (max-width:900px){
-    .top-menu,
-    .top-bar{
-      height : 60px;  
-    }
     .top-menu__pc-menu{
       display : none;
     }
