@@ -21,11 +21,49 @@ public class BuildService {
 		Util.rmdir("site");
 		Util.mkdirs("site");
 		Util.copy("template/main.css", "site/main.css");
-		
 		buildIndexPage();
+		buildArticleListPage();
 		buildArticlesDetailPage();
 	}
 	
+	private void buildArticleListPage() {
+		List<Board> boards = articleService.getBoards();
+		
+		String bodyTemplate = Util.getFileContents("template/article_list.html");
+		String foot = Util.getFileContents("template/foot.html");
+		
+		for (Board board : boards) {
+			if(board.menu_depth >= 2) {
+				StringBuilder sb = new StringBuilder();
+				
+				sb.append(getHeadHtml("article_list_" + board.code));
+				
+				String fileName = "article_list_" + board.code + "_1.html";
+				List<Article> articles = articleService.getForPrintArticlesByBoardNum(board.num);
+				
+				StringBuilder mainContent = new StringBuilder();
+				for(Article article : articles) {
+					String link = "article_detail_" + article.num + ".html";
+					
+					mainContent.append("<div>");
+						mainContent.append("<div>" + article.num + "</div>");
+						mainContent.append("<div>" + article.title + "</div>");
+					mainContent.append("</div>");
+				}
+				
+				String body = bodyTemplate.replace("${article-list__main-content}", mainContent.toString());
+				
+				sb.append(body);
+				sb.append(foot);
+				
+				String filePath = "site/" + fileName;
+				
+				Util.writeFile(filePath, sb.toString());
+				System.out.println(filePath + "생성");
+			}
+		}
+	}
+
 	private void buildArticlesDetailPage() {
 		List<Article> articles = articleService.getArticles();
 
@@ -70,7 +108,7 @@ public class BuildService {
 		List<Board> boards1 = articleService.getBoardsByDepth(1);
 		List<Board> boards2 = articleService.getBoardsByDepth(2);
 		
-		if(pageName.equals("index")) {
+		if(pageName.equals("홈")) {
 			mainBannerContentHtml.append("<div class=\"main__banner\">");
 			mainBannerContentHtml.append("<div class=\"height-100p flex flex-ai-c\">");
 			mainBannerContentHtml.append("<strong>");
@@ -83,12 +121,27 @@ public class BuildService {
 			mainBannerContentHtml.append("</div>");
 			
 			head = head.replace("${main__banner-replace}", mainBannerContentHtml.toString());
-		} else {
+		}
+		else if (pageName.contains("article_list_")) {
+			mainBannerContentHtml.append("<div class=\"list__banner\">");
+			mainBannerContentHtml.append("<div class=\"height-100p flex flex-ai-c\">");
+			mainBannerContentHtml.append("<strong>");
+			mainBannerContentHtml.append("<p>${boardName__content}</p>");
+			mainBannerContentHtml.append("</strong>");
+			mainBannerContentHtml.append("</div>");
+			mainBannerContentHtml.append("</div>");
+			
+			String title = pageName.split("_")[2];
+			Board board = articleService.getBoardsByCode(title);
+			
+			head = head.replace("${main__banner-replace}", mainBannerContentHtml.toString());
+			head = head.replace("${boardName__content}", board.name);
+		}
+		else {
 			mainBannerContentHtml.append("");
 			
 			head = head.replace("${main__banner-replace}", mainBannerContentHtml.toString());
 		}
-		
 		for (Board board : boards1) {
 			boardMenu1ContentHtml.append("<li>");
 			
@@ -127,6 +180,7 @@ public class BuildService {
 								boardMenu1ContentHtmlMobile.append(board2.name);
 							boardMenu1ContentHtmlMobile.append("</a>");
 							boardMenu1ContentHtmlMobile.append("</li>");
+
 						}
 					}
 					boardMenu1ContentHtmlMobile.append("</ul>");
@@ -142,7 +196,7 @@ public class BuildService {
 	private void buildIndexPage() {
 		StringBuilder sb = new StringBuilder();
 
-		String head = getHeadHtml("index");
+		String head = getHeadHtml("홈");
 		String foot = Util.getFileContents("template/foot.html");
 
 		String mainHtml = Util.getFileContents("template/index.html");

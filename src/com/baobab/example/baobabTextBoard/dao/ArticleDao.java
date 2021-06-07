@@ -119,4 +119,47 @@ public class ArticleDao {
 		return boards;
 		
 	}
+
+	public List<Article> getForPrintArticlesByBoardNum(int num) {
+		SecSql sql = new SecSql();
+		List<Article> articles = new ArrayList<>();
+		
+		sql.append("SELECT A.*,");
+		sql.append("DATE_FORMAT(A.regDate, '%Y-%m-%d') AS regDate,");
+		sql.append("M.name AS extra__name ,B.name AS extra__board");
+		sql.append("FROM article AS A");
+		sql.append("LEFT JOIN member AS M");
+		sql.append("ON A.memberNum = M.num");
+		sql.append("LEFT JOIN member AS B");
+		sql.append("ON A.boardNum = B.num");
+		
+		sql.append("WHERE boardNum = ?", num);
+		
+		sql.append("GROUP BY A.num");
+		
+		List<Map<String, Object>> articleMapList = MysqlUtil.selectRows(sql);
+		
+		for (Map<String, Object> articleMap : articleMapList) {
+			articles.add(new Article(articleMap));
+		}
+		
+		return articles;
+	}
+
+	public Board getBoardsByCode(String title) {
+		SecSql sql = new SecSql();
+		
+		sql.append("SELECT *");
+		sql.append("FROM board");
+		
+		sql.append("WHERE code = ?", title);
+		
+		Map<String, Object> boardMap = MysqlUtil.selectRow(sql);
+		
+		if(boardMap.isEmpty()) {
+			return null;
+		}
+		
+		return new Board(boardMap);
+	}
 }

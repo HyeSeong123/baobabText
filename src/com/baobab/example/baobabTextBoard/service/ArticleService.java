@@ -41,5 +41,13 @@ public class ArticleService {
 		return articleDao.getBoardsByDepth(depth);
 	}
 
+	public List<Article> getForPrintArticlesByBoardNum(int num) {
+		return articleDao.getForPrintArticlesByBoardNum(num);
+	}
+
+	public Board getBoardsByCode(String title) {
+		return articleDao.getBoardsByCode(title);
+	}
+
 
 }

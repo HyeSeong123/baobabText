@@ -345,7 +345,37 @@ ul,li,body{
   /* 탑 바 끝 */
 
   /* 메인 시작 */
-  
+  .list__banner{
+  	background-image : url("../img/list.jpg");
+  	background-position : center;
+  	background-size : 100%;
+  	background-repeat : no-repeat;
+  	position: absolute;
+    top:0;
+    left:0;
+  	width : 100%;
+  	height : 60%;
+  	font-family: 'Shadows Into Light', cursive;
+  }
+  .list__banner > div {
+  	justify-content: center;
+  }
+  .list__banner > div > strong {
+ 	 transform : rotate(8deg);
+  	color: gray;
+    font-size: 45px;
+    margin-left: 33%;
+  }
+  @media (min-width:600px) and (max-width:1000px){
+   	.list__banner > div > strong {
+	    font-size: 30px;
+	} 
+  }
+  @media (min-width:300px) and (max-width:600px){
+   	.list__banner > div > strong {
+	    font-size: 20px;
+	} 
+  }
   /* 메인 끝 */
 
   /* 푸터 시작 */
