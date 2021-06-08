@@ -1,3 +1,158 @@
 <main>
-	리스트
-</main>
+	<div>
+		<section class="article-list-topInner">
+		 <div class="search">
+		   <form onsubmit="return false">
+		      <input type="text" placeholder="검색어를 입력하세요">
+		      <input type="submit" value="검색">
+		    </form>
+		  </div>
+		</section>
+		
+		<section class="article-list-box">
+		  <div class="list-ad list-ad-left bd-red">광고</div>
+		  
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-1">I</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목1</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-2">II</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목2</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-3">III</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목3</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-4">IV</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목4</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-5">V</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목5</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-6">VI</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목6</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-7">VII</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목7</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-8">VIII</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목8</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-9">XI</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목9</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		    <a href="#" class="article-list flex">
+		    <div class="article-num">
+		      <span class="article-10">X</span>
+		    </div>
+		    <div class="article-writerAndTitle">
+		      <span class="article-title">제목10</span>
+		      <span class="article-writer">방혜성</span>
+		    </div>
+		    <div class="article-regDate">
+		      <span>2021-06-08</span>  
+		    </div>
+		  </a>
+		  </a>
+		  <div class="list-ad list-ad-right bd-red">광고</div>
+		</section>
+		
+		
+	</main>
+	<script>
+		    var height = $('.list__banner').innerHeight();
+		    if(window.innerWidth > 900){
+		        $('main').css('padding-top',height-70);
+		    } else if ( window.innerWidth < 900 ) {
+		        $('main').css('padding-top',height-50);
+		    }
+		    $(window).resize(function(){
+		        height = $('.list__banner').innerHeight();
+		         if(window.innerWidth > 900){
+		            $('main').css('padding-top',height-70);
+		        } else if ( window.innerWidth < 900 ) {
+		            $('main').css('padding-top',height-50);
+		        }
+		    })
+	</script>
+</div>
