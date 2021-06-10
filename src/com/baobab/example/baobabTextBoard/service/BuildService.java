@@ -42,13 +42,57 @@ public class BuildService {
 				List<Article> articles = articleService.getForPrintArticlesByBoardNum(board.num);
 				
 				StringBuilder mainContent = new StringBuilder();
+				int i=0;
+				String roman=null; 
 				for(Article article : articles) {
+					i++;
+					switch(i) {
+						case 1 : roman = "I";
+						break;
+						
+						case 2 : roman = "II";
+						break;
+						
+						case 3 : roman = "III";
+						break;
+						
+						case 4 : roman = "IV";
+						break;
+						
+						case 5 : roman = "V";
+						break;
+						
+						case 6 : roman = "VI";
+						break;
+						
+						case 7 : roman = "VII";
+						break;
+						
+						case 8 : roman = "VIII";
+						break;
+						
+						case 9 : roman = "XI";
+						break;
+						
+						case 10 : roman = "X";
+						break;
+						
+					}
 					String link = "article_detail_" + article.num + ".html";
 					
-					mainContent.append("<div>");
-						mainContent.append("<div>" + article.num + "</div>");
-						mainContent.append("<div>" + article.title + "</div>");
-					mainContent.append("</div>");
+					mainContent.append("<a href=\"#\" class=\"article-list flex\">");
+						mainContent.append("<div class=\"article-num\">");
+							mainContent.append("<span class=\"article-" + i + "\">" + roman + "</span>");
+						mainContent.append("</div>");
+						mainContent.append("<div class=\"article-writerAndTitle\">");
+							mainContent.append("<span class=\"article-title\">" + article.title + "</span>");
+							mainContent.append("<span class=\"article-writer\">" + article.extra__writer + "</span>");
+						mainContent.append("</div>");
+						mainContent.append("<div class=\"article-regDate\">");
+							mainContent.append("<span>" + article.regDate + "</span> ");
+						mainContent.append("</div>");
+					mainContent.append("</a>");
+					
 				}
 				
 				String body = bodyTemplate.replace("${article-list__main-content}", mainContent.toString());

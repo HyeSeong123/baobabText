@@ -126,7 +126,7 @@ public class ArticleDao {
 		
 		sql.append("SELECT A.*,");
 		sql.append("DATE_FORMAT(A.regDate, '%Y-%m-%d') AS regDate,");
-		sql.append("M.name AS extra__name ,B.name AS extra__board");
+		sql.append("M.name AS extra__writer ,B.name AS extra__board");
 		sql.append("FROM article AS A");
 		sql.append("LEFT JOIN member AS M");
 		sql.append("ON A.memberNum = M.num");
