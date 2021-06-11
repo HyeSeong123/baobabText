@@ -80,7 +80,7 @@ public class BuildService {
 					}
 					String link = "article_detail_" + article.num + ".html";
 					
-					mainContent.append("<a href=\"#\" class=\"article-list flex\">");
+					mainContent.append("<a href=\"article_detail_" + article.num + ".html\"class=\"article-list flex\">");
 						mainContent.append("<div class=\"article-num\">");
 							mainContent.append("<span class=\"article-" + i + "\">" + roman + "</span>");
 						mainContent.append("</div>");
@@ -111,14 +111,13 @@ public class BuildService {
 	private void buildArticlesDetailPage() {
 		List<Article> articles = articleService.getArticles();
 
-		String head = getHeadHtml("article_detail");
+		String bodyTemplate = Util.getFileContents("template/article_detail.html");
 		String foot = Util.getFileContents("template/foot.html");
 
-		// 게시물 상세피이지 생성
 		for (Article article : articles) {
 			StringBuilder sb = new StringBuilder();
 
-			sb.append(head);
+			sb.append(getHeadHtml("article_list_" + article.num));
 
 			sb.append("번호 : " + article.num + "<br>");
 			sb.append("작성날짜 : " + article.regDate + "<br>");
@@ -129,7 +128,10 @@ public class BuildService {
 			sb.append("<a href=\"article_detail_" + (article.num + 1) + ".html\">다음글</a><br>");
 
 			sb.append("</div>");
-
+			
+			String body = bodyTemplate.replace("${${article_detail_replace}", sb.toString());
+			
+			sb.append(body);
 			sb.append(foot);
 
 			String fileName = "article_detail_" + article.num + ".html";
@@ -180,8 +182,7 @@ public class BuildService {
 			
 			head = head.replace("${main__banner-replace}", mainBannerContentHtml.toString());
 			head = head.replace("${boardName__content}", board.name);
-		}
-		else {
+		} else {
 			mainBannerContentHtml.append("");
 			
 			head = head.replace("${main__banner-replace}", mainBannerContentHtml.toString());

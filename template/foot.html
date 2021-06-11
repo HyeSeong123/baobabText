@@ -27,27 +27,28 @@
 
 <script>
     var height = $('.main__banner').innerHeight();
+    var main = $('main');
+    var top_hamburger = $('.top-bar__hamburger');
     if(window.innerWidth > 900){
-        $('main').css('padding-top',height-70);
+        main.css('padding-top',height-70);
     } else if ( window.innerWidth < 900 ) {
-        $('main').css('padding-top',height-50);
+        main.css('padding-top',height-50);
     }
     $(window).resize(function(){
         height = $('.main__banner').innerHeight();
          if(window.innerWidth > 900){
-            $('main').css('padding-top',height-70);
+            main.css('padding-top',height-70);
             
         } else if ( window.innerWidth < 900 ) {
-            $('main').css('padding-top',height-50);
+            main.css('padding-top',height-50);
         }
-         $('.top-bar__hamburger').removeClass('open');
+         top_hamburger.removeClass('open');
          $('.top-menu__menu').removeClass('open');
     })
     $(document).ready(function(){
-	$('.top-bar__hamburger').click(function(){
+    	top_hamburger.click(function(){
 		$(this).toggleClass('open');
         
-        console.log("innerWidth= " + window.innerWidth);
         if(window.innerWidth > 900){
             $('.top-menu__pc-menu').toggleClass('open');
         }
@@ -60,26 +61,24 @@
 var subOpenToggle = 0;
  $('.top-menu__mobile-menu > ul > li > a').click(function(){
      var height;
-    if($(this).text().indexOf('Web Programs') != -1){
+     var thisis = $(this);
+    if(thisis.text().indexOf('Web Programs') != -1){
         height = 180;
-    } else if($(this).text().indexOf('DataBase') != -1){
+    } else if(thisis.text().indexOf('DataBase') != -1){
         height = 60;
-    } else if($(this).text().indexOf('Server') != -1){
+    } else if(thisis.text().indexOf('Server') != -1){
         height = 60;
-    } else if($(this).text().indexOf('Free') != -1){
+    } else if(thisis.text().indexOf('Free') != -1){
         height = 60;
     }
-    $(this).closest('ul>li').toggleClass('subOpen');
-    if($(this).parent().hasClass('subOpen')){
-        $(this).parent().children('ul').css('height', height);
+    thisis.closest('ul>li').toggleClass('subOpen');
+    if(thisis.parent().hasClass('subOpen')){
+    	thisis.parent().children('ul').css('height', height);
         subOpenToggle = 1;
-        console.log(subOpenToggle);
-    } else if($(this).parent().hasClass('subOpen') == false){
+    } else if(thisis.parent().hasClass('subOpen') == false){
         height = 0;
-        $(this).parent().children('ul').css('height', height);
+        thisis.parent().children('ul').css('height', height);
         subOpenToggle = 0;
-        console.log(height);
-        console.log(subOpenToggle);
     }
  });
 </script>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <link rel="stylesheet" href="main.css">
     <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,11 +25,104 @@
     	<div class="list__banner"><div class="height-100p flex flex-ai-c"><strong><p>Daily</p></strong></div></div>
         <header class="top-bar con height-100p">
             <div class="flex flex-ai-c top-menu">
-                <section class="top-bar__logo flex-jc-c">
-                    <a href="#" class="logo img-box">
-                        <img src="../img/logo.png" alt="">
+                <section class="top-bar__logo flex flex-jc-c flex-ai-c height-100p">
+                	<a href="index.html" class="logo flex flex-ai-c">
+                		<span class="img-box logo_img">
+	                    	<img src="../img/logo.png" alt="이미지 첨부" />
+	                    </span>
+	                    <span class="logo__span logo__W">W
+	                    	<span class="logo__span logo__1 logo__hide">eb</span>
+	                    </span>
+	                    
+	                    <span class="logo__span logo__P">P
+	                    	<span class="logo__span logo__2 logo__hide">rogram</span>
+	                    </span>
+	                    
+	                    <span class="logo__span logo__B">B
+	                    	<span class="logo__span logo__3 logo__hide">log</span>
+	                    </span>
+	                    
                     </a>
                 </section>
+                
+                <script>
+                var isMobile = false;
+                var filter = "win16|win32|win64|mac";
+                var width = window.innerWidth;
+                var logoP = $('.logo__P');
+                var logoB = $('.logo__B');
+                if (navigator.platform) {
+                    isMobile = filter.indexOf(navigator.platform.toLowerCase()) < 0;
+                }
+                
+                if(isMobile == false){
+                	var logo = $('.logo');
+                	
+                	if(width > 1350){
+	                	logo.mouseenter(function(){
+	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:30});
+	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:125});
+	                	});
+	                	logo.mouseleave(function(){
+	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
+	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
+	                	});
+                	}
+                	else if(width < 1350 && width > 900){
+	                	logo.mouseenter(function(){
+	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:20});
+	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:85});
+	                	});
+	                	logo.mouseleave(function(){
+	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
+	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
+	                	});
+                	}
+                	else if(width < 900){
+	                	logo.mouseenter(function(){
+	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:0});
+	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:0});
+	                	});
+	                	logo.mouseleave(function(){
+	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
+	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
+	                	});
+                	}
+                	$(window).resize(function(){
+                		width = window.innerWidth;
+	                	if(width > 1350){
+		                	logo.mouseenter(function(){
+		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:30});
+		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:125});
+		                	});
+		                	logo.mouseleave(function(){
+		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
+		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
+		                	});
+	                	}
+	                	else if(width < 1350 && width > 900){
+		                	logo.mouseenter(function(){
+		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:20});
+		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:85});
+		                	});
+		                	logo.mouseleave(function(){
+		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
+		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
+		                	});
+	                	}
+	                	else if(width < 900){
+		                	logo.mouseenter(function(){
+		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:0});
+		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:0});
+		                	});
+		                	logo.mouseleave(function(){
+		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
+		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
+		                	});
+	                	}
+                	});
+                }
+                </script>
                 
                 <div class="flex-grow-1"></div>
                 <!-- 탑바 PC 버전 -->
@@ -126,27 +221,28 @@
 
 <script>
     var height = $('.main__banner').innerHeight();
+    var main = $('main');
+    var top_hamburger = $('.top-bar__hamburger');
     if(window.innerWidth > 900){
-        $('main').css('padding-top',height-70);
+        main.css('padding-top',height-70);
     } else if ( window.innerWidth < 900 ) {
-        $('main').css('padding-top',height-50);
+        main.css('padding-top',height-50);
     }
     $(window).resize(function(){
         height = $('.main__banner').innerHeight();
          if(window.innerWidth > 900){
-            $('main').css('padding-top',height-70);
+            main.css('padding-top',height-70);
             
         } else if ( window.innerWidth < 900 ) {
-            $('main').css('padding-top',height-50);
+            main.css('padding-top',height-50);
         }
-         $('.top-bar__hamburger').removeClass('open');
+         top_hamburger.removeClass('open');
          $('.top-menu__menu').removeClass('open');
     })
     $(document).ready(function(){
-	$('.top-bar__hamburger').click(function(){
+    	top_hamburger.click(function(){
 		$(this).toggleClass('open');
         
-        console.log("innerWidth= " + window.innerWidth);
         if(window.innerWidth > 900){
             $('.top-menu__pc-menu').toggleClass('open');
         }
@@ -159,26 +255,24 @@
 var subOpenToggle = 0;
  $('.top-menu__mobile-menu > ul > li > a').click(function(){
      var height;
-    if($(this).text().indexOf('Web Programs') != -1){
+     var thisis = $(this);
+    if(thisis.text().indexOf('Web Programs') != -1){
         height = 180;
-    } else if($(this).text().indexOf('DataBase') != -1){
+    } else if(thisis.text().indexOf('DataBase') != -1){
         height = 60;
-    } else if($(this).text().indexOf('Server') != -1){
+    } else if(thisis.text().indexOf('Server') != -1){
         height = 60;
-    } else if($(this).text().indexOf('Free') != -1){
+    } else if(thisis.text().indexOf('Free') != -1){
         height = 60;
     }
-    $(this).closest('ul>li').toggleClass('subOpen');
-    if($(this).parent().hasClass('subOpen')){
-        $(this).parent().children('ul').css('height', height);
+    thisis.closest('ul>li').toggleClass('subOpen');
+    if(thisis.parent().hasClass('subOpen')){
+    	thisis.parent().children('ul').css('height', height);
         subOpenToggle = 1;
-        console.log(subOpenToggle);
-    } else if($(this).parent().hasClass('subOpen') == false){
+    } else if(thisis.parent().hasClass('subOpen') == false){
         height = 0;
-        $(this).parent().children('ul').css('height', height);
+        thisis.parent().children('ul').css('height', height);
         subOpenToggle = 0;
-        console.log(height);
-        console.log(subOpenToggle);
     }
  });
 </script>
