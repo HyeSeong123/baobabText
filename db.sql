@@ -36,9 +36,9 @@ CREATE TABLE `article` (
 /*Data for the table `article` */
 
 insert  into `article`(`num`,`regDate`,`updateDate`,`memberNum`,`boardNum`,`title`,`body`,`hitsCount`,`replyCount`) values 
-(1,'2021-05-25 21:24:52','2021-05-25 22:26:50',1,1,'방혜성 수정 1','방혜성 수정 1',0,0),
-(3,'2021-05-25 22:25:46','2021-05-25 22:27:08',1,1,'방혜성 수정2','방혜성 수정 2',0,0),
-(4,'2021-05-25 22:25:54','2021-05-25 22:26:10',1,1,'방혜성 수정','방혜성 수정',0,0);
+(1,'2021-05-25 21:24:52','2021-05-25 22:26:50',1,5,'가가ㅏ','방혜성 수정 1',0,0),
+(3,'2021-05-25 22:25:46','2021-05-25 22:27:08',1,5,'방혜성 수정2','방혜성 수정 2',0,0),
+(4,'2021-05-25 22:25:54','2021-05-25 22:26:10',1,5,'방혜성 수정','방혜성 수정',0,0);
 
 /*Table structure for table `board` */
 
@@ -59,16 +59,16 @@ CREATE TABLE `board` (
 /*Data for the table `board` */
 
 insert  into `board`(`num`,`regDate`,`updateDate`,`name`,`code`,`menu_depth`,`parent_code`,`menu_url`) values 
-(1,'2021-06-04 15:10:24','2021-06-04 15:10:26','Web Programs','web',1,NULL,'web'),
-(2,'2021-06-04 15:12:13','2021-06-04 15:12:15','DataBase','db',1,NULL,'db'),
-(3,'2021-06-04 15:12:32','2021-06-04 15:12:34','Server','server',1,NULL,'server'),
-(4,'2021-06-04 15:12:49','2021-06-04 15:12:52','Free','free',1,NULL,'free'),
-(5,'2021-06-04 15:34:46','2021-06-04 15:34:48','Java','java',2,'web','java'),
-(6,'2021-06-04 15:35:11','2021-06-04 15:35:13','JavaScript','js',2,'web','js'),
-(7,'2021-06-04 15:36:27','2021-06-04 15:35:13','Spring','spring',2,'web','spring'),
-(8,'2021-06-04 15:36:27','2021-06-04 15:35:13','Mysql','mysql',2,'db','mysql'),
-(9,'2021-06-04 15:35:13','2021-06-04 15:35:13','CentOs','centos',2,'server','centos'),
-(10,'2021-06-04 15:35:13','2021-06-04 15:35:13','Daily','daily',2,'free','daily');
+(1,'2021-06-04 15:10:24','2021-06-04 15:10:26','Web Programs','web',1,NULL,'article_list_java_1.html'),
+(2,'2021-06-04 15:12:13','2021-06-04 15:12:15','DataBase','db',1,NULL,'article_list_mysql_1.html'),
+(3,'2021-06-04 15:12:32','2021-06-04 15:12:34','Server','server',1,NULL,'article_list_centos_1.html'),
+(4,'2021-06-04 15:12:49','2021-06-04 15:12:52','Free','free',1,NULL,'article_list_daily_1.html'),
+(5,'2021-06-04 15:34:46','2021-06-04 15:34:48','Java','java',2,'web','article_list_java_1.html'),
+(6,'2021-06-04 15:35:11','2021-06-04 15:35:13','JavaScript','js',2,'web','article_list_js_1.html'),
+(7,'2021-06-04 15:36:27','2021-06-04 15:35:13','Spring','spring',2,'web','article_list_spring_1.html'),
+(8,'2021-06-04 15:36:27','2021-06-04 15:35:13','Mysql','mysql',2,'db','article_list_mysql_1.html'),
+(9,'2021-06-04 15:35:13','2021-06-04 15:35:13','CentOs','centos',2,'server','article_list_centos_1.html'),
+(10,'2021-06-04 15:35:13','2021-06-04 15:35:13','Daily','daily',2,'free','article_list_daily_1.html');
 
 /*Table structure for table `member` */
 

@@ -117,19 +117,16 @@ public class BuildService {
 		for (Article article : articles) {
 			StringBuilder sb = new StringBuilder();
 
-			sb.append(getHeadHtml("article_list_" + article.num));
-
-			sb.append("번호 : " + article.num + "<br>");
-			sb.append("작성날짜 : " + article.regDate + "<br>");
-			sb.append("갱신날짜 : " + article.updateDate + "<br>");
-			sb.append("제목 : " + article.title + "<br>");
-			sb.append("내용 : " + article.body + "<br>");
-			sb.append("<a href=\"article_detail_" + (article.num - 1) + ".html\">이전글</a><br>");
-			sb.append("<a href=\"article_detail_" + (article.num + 1) + ".html\">다음글</a><br>");
-
-			sb.append("</div>");
+			sb.append(getHeadHtml("article_detail_" + article.num));
 			
-			String body = bodyTemplate.replace("${${article_detail_replace}", sb.toString());
+			StringBuilder mainContetnt = new StringBuilder();
+			mainContetnt.append("번호 : " + article.num + "<br>");
+			mainContetnt.append("작성날짜 : " + article.regDate + "<br>");
+			mainContetnt.append("갱신날짜 : " + article.updateDate + "<br>");
+			mainContetnt.append("제목 : " + article.title + "<br>");
+			mainContetnt.append("내용 : " + article.body + "<br>");
+			
+			String body = bodyTemplate.replace("${article_detail_replace}", mainContetnt.toString());
 			
 			sb.append(body);
 			sb.append(foot);

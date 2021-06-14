@@ -695,6 +695,16 @@ input:focus {outline:none;}
   		font-size : 25px;
 	}
   }
+  /* 상세페이지 메인 시작*/
+  .detail__main{
+  	background-color : white;
+  }
+  .detail__main-cover{
+  	height : 80%;
+  	width : 80%;
+  }
+  /* 상세페이지 메인 끝*/
+  
   /* 메인 끝 */
 
 /* 푸터 시작 */
