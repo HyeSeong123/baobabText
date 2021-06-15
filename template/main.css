@@ -697,12 +697,63 @@ input:focus {outline:none;}
   }
   /* 상세페이지 메인 시작*/
   .detail__main{
-  	background-color : white;
+  	background-color : #F5F2DE;
+    position: relative;
   }
-  .detail__main-cover{
-  	height : 80%;
-  	width : 80%;
+  .blackBoard{
+    margin : 5% 0 5% 0;
+    width : 100%;
   }
+  .blackBoard > div {
+    margin : 0 auto;
+  }
+  .blackBoard-outLine{
+    width : 50%;
+    min-height: 500px;
+    border : 20px solid #C09C57;
+  }
+  .blackBoard-inner{
+    margin : 0 auto;
+    color : white;
+    background-color : #2A751C;
+    width : 100%;
+    min-height: 500px;
+    box-shadow: 0 0 20px 0 black inset;
+    z-index: 99;
+  }
+  .numAndTitle{
+    margin-top : 5%;
+    margin-left : 15px;
+  }
+  .numAndTitle .detail__article-title{
+    margin-left : 10px;
+  }
+  .detail__article-regDate {
+    text-align: right;
+    margin-right: 15px;
+  }
+  .detail__article-content{
+    margin-left : 15px;
+    margin-top : 20px;
+  }
+  .blackBoard-bottom{
+    height: 0;
+    width : calc( 50% + 40px );
+    border-bottom : 60px solid #745C2E;
+    border-left : 30px solid transparent;
+    border-right: 30px solid transparent;
+  }
+  .blackBoard-bottom .chalks{
+    width : 80px;
+    position: relative;
+    bottom : 40px;
+  }
+  .blackBoard-shadow{
+    width : calc( 50% + 100px );
+    height : 0;
+    border-bottom : 16px solid black;
+  }
+  
   /* 상세페이지 메인 끝*/
   
   /* 메인 끝 */
