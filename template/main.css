@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'TTMogujasusimgyeolR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.2/TTMogujasusimgyeolR.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: typo1;
+  src: url(../fonts/Typo_DecoLetterSlash.ttf);
+}
+@font-face {
+  font-family: typo2;
+  src: url(../fonts/Typo_DecoSolidSlash.ttf);
+}
+@font-face {
+  font-family: crayon;
+  src: url(../fonts/Typo_CrayonM.ttf);
+}
+
 ul,li,body{
     margin : 0;
     padding : 0;
@@ -233,6 +252,7 @@ ul,li,body{
   position: relative;
   top: -100px;
   transition: top 0.5s;
+  z-index : 99;
 }
 .top-menu__mobile-menu{
   position : absolute;
@@ -314,7 +334,7 @@ ul,li,body{
   }
   .top-menu__mobile-menu{
     display : block;
-    height: 100%;
+    height: 90%;
     z-index : 1;
     overflow-x: hidden;
   }
@@ -719,22 +739,46 @@ input:focus {outline:none;}
     width : 100%;
     min-height: 500px;
     box-shadow: 0 0 20px 0 black inset;
-    z-index: 99;
+    z-index: 1;
+    font-family: 'crayon';
   }
   .numAndTitle{
     margin-top : 5%;
+    margin-bottom : 20px;
     margin-left : 15px;
+    font-size:45px;
   }
   .numAndTitle .detail__article-title{
     margin-left : 10px;
+    position : relative;
   }
   .detail__article-regDate {
     text-align: right;
     margin-right: 15px;
+    font-size : 20px;
   }
   .detail__article-content{
     margin-left : 15px;
     margin-top : 20px;
+    font-size : 20px;
+    line-height: 40px;
+  }
+  .numAndTitle .star{
+    transform : rotate(45deg);
+    font-size : 25px;
+    position: absolute;
+  }
+  .numAndTitle .star1{
+    right :-2%;
+    top : -40%;
+  }
+  .numAndTitle .star2{
+    right :-8%;
+    top : -65%;
+  }
+  .numAndTitle .star3{
+    right :-10.5%;
+    top : -30%;
   }
   .blackBoard-bottom{
     height: 0;
@@ -742,6 +786,10 @@ input:focus {outline:none;}
     border-bottom : 60px solid #745C2E;
     border-left : 30px solid transparent;
     border-right: 30px solid transparent;
+  }
+  .blackBoard-bottom .eraser{
+    width : 80px;
+    margin-right : 20px;
   }
   .blackBoard-bottom .chalks{
     width : 80px;
@@ -753,7 +801,19 @@ input:focus {outline:none;}
     height : 0;
     border-bottom : 16px solid black;
   }
-  
+  @media (min-width:200px) and (max-width:1350px){
+  	.numAndTitle {
+  		margin-top : 10%;
+  	}
+  }
+  @media (min-width:200px) and (max-width:800px){
+  	.numAndTitle {
+  		font-size : 35px;
+  	}
+   .numAndTitle .star{
+	    display : none;
+	  }
+  } 
   /* 상세페이지 메인 끝*/
   
   /* 메인 끝 */

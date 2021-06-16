@@ -16,6 +16,7 @@ public class ArticleDao {
 		
 		SecSql sql = new SecSql();
 		sql.append("SELECT A.*,");
+		sql.append("DATE_FORMAT(A.regDate, '%Y-%m-%d') AS fRegDate,");
 		sql.append("M.loginId AS extra__writer");
 		sql.append("FROM article AS A");
 		sql.append("LEFT JOIN `member` AS M");
@@ -125,7 +126,7 @@ public class ArticleDao {
 		List<Article> articles = new ArrayList<>();
 		
 		sql.append("SELECT A.*,");
-		sql.append("DATE_FORMAT(A.regDate, '%Y-%m-%d') AS regDate,");
+		sql.append("DATE_FORMAT(A.regDate, '%Y-%m-%d') AS fRegDate,");
 		sql.append("M.name AS extra__writer ,B.name AS extra__board");
 		sql.append("FROM article AS A");
 		sql.append("LEFT JOIN member AS M");

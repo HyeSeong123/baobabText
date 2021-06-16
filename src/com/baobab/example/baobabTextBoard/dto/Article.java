@@ -15,7 +15,7 @@ public class Article {
 	
 	public String extra__writer;
 	public String extra__board;
-	
+	public String fRegDate;
 	public Article(int num, String regDate, String updateDate, int memberNum, int boardNum, String title, String body, int hitsCount, int replyCount, String extra__writer, String extra__board) {
 		this.num = num;
 		this.regDate = regDate;
@@ -45,6 +45,9 @@ public class Article {
 		if(articleMap.containsKey("extra__board")) {
 			this.extra__board = (String) articleMap.get("extra__board");
 		}
+		if(articleMap.containsKey("fRegDate")) {
+			this.fRegDate = (String) articleMap.get("fRegDate");
+		}
 	}
 
 	@Override
@@ -52,8 +55,6 @@ public class Article {
 		return "Article [num=" + num + ", regDate=" + regDate + ", updateDate=" + updateDate + ", memberNum="
 				+ memberNum + ", boardNum=" + boardNum + ", title=" + title + ", body=" + body + ", hitsCount="
 				+ hitsCount + ", replyCount=" + replyCount + ", extra__writer=" + extra__writer + ", extra__board="
-				+ extra__board + "]";
+				+ extra__board + ", fRegDate=" + fRegDate + "]";
 	}
-
-
 }
