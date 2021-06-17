@@ -613,6 +613,19 @@ ul,li,body{
 	background-color: #000000;
 	color : rgba(255,255,255,1);
 }
+.page_box {
+	font-size : 18px;
+	margin-top : 10px;
+}
+.page_box > li{
+	margin-right : 10px;
+}
+.article-page-menu__link--selected{
+	color:red;
+}
+.article-none{
+	font-size : 25px;
+}
 input:focus {outline:none;}
   
   @media (min-width:250px) and (max-width:1100px){
