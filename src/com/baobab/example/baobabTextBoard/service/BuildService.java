@@ -244,6 +244,7 @@ public class BuildService {
 
 		for (Article article : articles) {
 			StringBuilder sb = new StringBuilder();
+			article.fRegDate = article.fRegDate.substring(2,article.fRegDate.length());
 			article.fRegDate = article.fRegDate.replaceFirst("-", "년 ");
 			article.fRegDate = article.fRegDate.replace("-", "월 ");
 			sb.append(getHeadHtml("article_detail_" + article.num));
@@ -259,8 +260,57 @@ public class BuildService {
 			mainContetnt.append("</section>");
 			mainContetnt.append("<div class=\"detail__article-regDate\">" + article.fRegDate + "일</div>");
 			mainContetnt.append("<div class=\"detail__article-content\">" + article.body + "</div>");
+			
+			StringBuilder listContent = new StringBuilder();
+			int i = article.num;
+			int emoge = 0;
+			String newEmoge = null;
+			for (Article article1 : articles) {
+				if(emoge == 7) {
+					emoge = 0;
+				}
+				emoge++;
+				switch(emoge) {
+					case 1:
+						newEmoge = "🗒";
+						break;
+					case 2:
+						newEmoge = "📖";
+						break;
+					case 3:
+						newEmoge = "📱";
+						break;
+					case 4:
+						newEmoge = "💻";
+						break;
+					case 5:
+						newEmoge = "✏";
+						break;
+					case 6:
+						newEmoge = "🖋";
+						break;
+					case 7:
+						newEmoge = "📕";
+						break;
+				}
+				article1.fRegDate = article1.fRegDate.replaceFirst("-", ". ");
+				article1.fRegDate = article1.fRegDate.replace("-", ".");
+				if ( i >= (article1.num - 3) && i <= (article1.num + 3)) {
+					if(article.num == article1.num) {
+						listContent.append("<tr class=\"selected\" onClick=location.href=\"article_detail_" + article1.num + ".html\">");
+					} else {
+						listContent.append("<tr onClick=location.href=\"article_detail_" + article1.num + ".html\">");
+					}
+						listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge +  "</td>");
+						listContent.append("<td class=\"articleList_title\"" + ">" + article1.title + "</td>");
+						listContent.append("<td class=\"articleList_writer\"" + ">" + article1.extra__writer + "</td>");
+						listContent.append("<td class=\"articleList_regDate\"" + ">" + article1.fRegDate + ".</td>");
+					listContent.append("</tr>");
+				}
+			}
 			String body = bodyTemplate.replace("${article_detail_replace}", mainContetnt.toString());
-
+			body = body.replace("${article_list_replace}", listContent.toString());
+			
 			sb.append(body);
 			sb.append(foot);
 

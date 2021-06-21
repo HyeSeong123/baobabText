@@ -620,6 +620,9 @@ ul,li,body{
 .page_box > li{
 	margin-right : 10px;
 }
+.selected{
+	color : yellow;
+}
 .article-page-menu__link--selected{
 	color:red;
 }
@@ -814,6 +817,66 @@ input:focus {outline:none;}
     height : 0;
     border-bottom : 16px solid black;
   }
+  .article-list-box__cover{
+  	width : 60%;
+  	margin : 0 auto;
+  }
+  .article-list-box__cover > table{
+  	width: 80%;
+  	color : white;
+  	font-family: crayon;
+  }
+  table{
+  	border : 3px solid black;
+  }
+  table > thead,
+  table > tbody > tr
+  {
+  	height : 45px;
+  }
+  table thead > tr,
+  table tbody > tr
+   {
+  	border-collapse: collapse;
+  }
+ table > thead,
+ .articleList_num
+  {
+ 	background-color : #2F792D;
+ 	color : white;
+ }
+ table > tbody{
+ 	background-color : #cfcfcf;
+ 	color : black;
+ }
+ table > tbody > tr {
+ 	cursor: pointer;
+ }
+ table > tbody > tr > td{
+ 	transition : all 0.5s;
+ }
+ table > tbody > tr:hover > td:not(:first-child) {
+ 	background-color : #AEAEAE;
+ 	color : white;
+ }
+  table tr > th,
+  table tr > td
+  {
+  	text-align: center;
+  	border : 6px solid white;
+  	
+  }
+  tbody > tr> td:first-child{
+  	width:10%;
+  }
+  tbody > tr> td:nth-child(3){
+  	width:20%;
+  }
+  tbody > tr > td:nth-child(2),
+  tbody > tr > td:nth-child(4)
+  {
+  	width:35%;
+  }
   @media (min-width:200px) and (max-width:1350px){
   	.numAndTitle {
   		margin-top : 10%;
@@ -826,6 +889,23 @@ input:focus {outline:none;}
    .numAndTitle .star{
 	    display : none;
 	  }
+  }
+  @media (min-width:200px) and (max-width: 500px){
+  	 .blackBoard-bottom{
+  		display : none;
+  	}
+  	.blackBoard-shadow{
+  		display : none;
+  	}
+  	.blackBoard-outLine{
+  		width : calc( 100% - 40px);
+  	}
+  	.article-list-box__cover{
+  		width : 100%;
+  	}
+  	.article-list-box__cover > table{
+  		width : 100%;
+  	}
   } 
   /* 상세페이지 메인 끝*/
   

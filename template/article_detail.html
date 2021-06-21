@@ -17,5 +17,32 @@
 			<div class="blackBoard-shadow"></div>
 		</div>
 	</section>
-		
+	
+	<section class="article-list-box">
+		<div class="article-list-box__cover flex flex-column flex-ai-c">
+			<table border="1">
+				<thead>
+					<tr>
+						<th></td>
+						<th class="sample_width">제목</td>
+						<th>작성자</td>
+						<th>작성일</td>
+					</tr>
+				</thead>
+				
+				<tbody>
+					${article_list_replace}	
+				</tbody>
+			</table>
+			
+		</div>
+	</section>
+	
+	<!--  
+	<script>
+		var height = $('.sample_width').width();
+		$('.article-list-box__cover').children('table').children('tbody').children('tr').css('height', height);
+	</script>
+	-->
+	
 </main>
