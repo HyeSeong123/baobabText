@@ -15,8 +15,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <!-- 구글 폰트 -->
+    
+  	<!-- 토스트 UI 에디터, 자바스크립트 코어 -->
+	<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+	<!-- 코드 미러 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" />
+	<!-- 토스트 UI 에디터, CSS 코어 -->
+	<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+	
     <title>${title-bar__content}</title>
 </head>
 
@@ -44,85 +52,6 @@
 	                    
                     </a>
                 </section>
-                
-                <script>
-                var isMobile = false;
-                var filter = "win16|win32|win64|mac";
-                var width = window.innerWidth;
-                var logoP = $('.logo__P');
-                var logoB = $('.logo__B');
-                if (navigator.platform) {
-                    isMobile = filter.indexOf(navigator.platform.toLowerCase()) < 0;
-                }
-                
-                if(isMobile == false){
-                	var logo = $('.logo');
-                	
-                	if(width > 1350){
-	                	logo.mouseenter(function(){
-	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:30});
-	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:125});
-	                	});
-	                	logo.mouseleave(function(){
-	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
-	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
-	                	});
-                	}
-                	else if(width < 1350 && width > 900){
-	                	logo.mouseenter(function(){
-	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:20});
-	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:85});
-	                	});
-	                	logo.mouseleave(function(){
-	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
-	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
-	                	});
-                	}
-                	else if(width < 900){
-	                	logo.mouseenter(function(){
-	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:0});
-	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:0});
-	                	});
-	                	logo.mouseleave(function(){
-	                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
-	                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
-	                	});
-                	}
-                	$(window).resize(function(){
-                		width = window.innerWidth;
-	                	if(width > 1350){
-		                	logo.mouseenter(function(){
-		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:30});
-		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:125});
-		                	});
-		                	logo.mouseleave(function(){
-		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
-		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
-		                	});
-	                	}
-	                	else if(width < 1350 && width > 900){
-		                	logo.mouseenter(function(){
-		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:20});
-		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:85});
-		                	});
-		                	logo.mouseleave(function(){
-		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
-		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
-		                	});
-	                	}
-	                	else if(width < 900){
-		                	logo.mouseenter(function(){
-		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x:0});
-		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x:0});
-		                	});
-		                	logo.mouseleave(function(){
-		                		gsap.to(".logo__P", {duration:0.5, ease:"power2.inOut" , x: 0});
-		                		gsap.to(".logo__B", {duration:0.5, ease:"power2.inOut" , x: 0});
-		                	});
-	                	}
-                	});
-                }
-                </script>
                 
                 <div class="flex-grow-1"></div>
                 <!-- 탑바 PC 버전 -->

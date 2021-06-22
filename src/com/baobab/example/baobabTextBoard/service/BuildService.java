@@ -18,11 +18,13 @@ public class BuildService {
 	}
 
 	public void buildSite() {
-		Util.rmdir("site");
 		Util.mkdirs("site");
 		Util.mkdirs("site/img");
+		Util.mkdirs("site/fonts");
 		Util.copy("template/main.css", "site/main.css");
+		Util.copy("template/app.js", "site/app.js");
 		Util.copyFolder("img", "site/img");
+		Util.copyFolder("fonts", "site/fonts");
 		buildIndexPage();
 		buildArticleListPages();
 		buildArticlesDetailPage();
@@ -255,12 +257,10 @@ public class BuildService {
 			mainContetnt.append("<section class=\"numAndTitle flex\">");
 			mainContetnt.append("<div class=\"detail__article-num\">" + article.num + ". </div>");
 			mainContetnt.append("<div class=\"detail__article-title\">" + article.title);
-			mainContetnt.append("<span class=\"star star1\">⛧</span>");
-			mainContetnt.append("<span class=\"star star2\">⛧</span>");
-			mainContetnt.append("<span class=\"star star3\">⛧</span>");
 			mainContetnt.append("</div>");
 			mainContetnt.append("</section>");
 			mainContetnt.append("<div class=\"detail__article-regDate\">" + article.fRegDate + "일</div>");
+			
 			mainContetnt.append("<div class=\"detail__article-content\">" + article.body + "</div>");
 			
 			StringBuilder listContent = new StringBuilder();

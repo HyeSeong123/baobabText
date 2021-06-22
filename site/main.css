@@ -6,15 +6,15 @@
 }
 @font-face {
   font-family: typo1;
-  src: url(../fonts/Typo_DecoLetterSlash.ttf);
+  src: url(fonts/Typo_DecoLetterSlash.ttf);
 }
 @font-face {
   font-family: typo2;
-  src: url(../fonts/Typo_DecoSolidSlash.ttf);
+  src: url(fonts/Typo_DecoSolidSlash.ttf);
 }
 @font-face {
   font-family: crayon;
-  src: url(../fonts/Typo_CrayonM.ttf);
+  src: url(fonts/Typo_CrayonM.ttf);
 }
 
 ul,li,body{
@@ -876,6 +876,17 @@ input:focus {outline:none;}
   tbody > tr > td:nth-child(4)
   {
   	width:35%;
+  }
+  .toastui-editor-contents > *,
+  .toastui-editor-contents > ul > *,
+  .toastui-editor-contents > ul > li > *,
+  .toastui-editor-contents > ul > li > p 
+  {
+  	font-family: crayon !important;
+  	color : white !important;
+  }
+  .toastui-editor-contents h1 {
+  	border-bottom : 3px double white !important;
   }
   @media (min-width:200px) and (max-width:1350px){
   	.numAndTitle {
