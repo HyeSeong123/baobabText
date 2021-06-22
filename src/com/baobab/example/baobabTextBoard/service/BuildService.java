@@ -20,7 +20,9 @@ public class BuildService {
 	public void buildSite() {
 		Util.rmdir("site");
 		Util.mkdirs("site");
+		Util.mkdirs("site/img");
 		Util.copy("template/main.css", "site/main.css");
+		Util.copyFolder("img", "site/img");
 		buildIndexPage();
 		buildArticleListPages();
 		buildArticlesDetailPage();
