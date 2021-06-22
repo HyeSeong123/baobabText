@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Util {
 
@@ -144,5 +146,9 @@ public class Util {
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
+	}
+
+	public static String getNowDateStr() {
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 	}
 }

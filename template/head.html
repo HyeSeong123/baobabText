@@ -37,6 +37,39 @@
 	
     <title>${title-bar__content}</title>
     <link rel="icon" href="img/favicon.ico"/>
+    
+    <!-- SEO 태그 -->
+    <link rel="canonical" href="${site-main-url}" />
+	<meta name="subject" content="${site-subject}"/>
+	<meta name="title" content="${site-name}" />
+	<meta name="keywords" content="${site-keywords}" />
+	<meta name="copyright" content="${site-name}" />
+	<meta name="pubdate" content="${current-date}" />
+	<meta name="lastmod" content="${current-date}" />
+	<!-- OPENGRAPH -->
+	<meta property="og:site_name" content="${site-name}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="${site-subject}" />
+	<meta property="og:description" content="${site-description}" />
+	<meta property="og:locale" content="ko_KR" />
+	<meta property="og:image" content="img/seo_banner.jpg" />
+	<meta property="og:image:alt" content="${site-domain}" />
+	<meta property="og:updated_time" content="${current-date}"/>
+	<meta property="og:pubdate" content="${current-date}" />
+	<meta property="og:url" content="${site-main-url}" />
+	<!-- TWITTER -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="${site-subject}" />
+	<meta name="twitter:site" content="@${site-name}" />
+	<meta name="twitter:creator" content="@${site-name}" />
+	<meta name="twitter:image" content="img/seo_banner.jpg">
+	<meta name="twitter:description" content="${site-description}" />
+	<!-- GOOGLE+ -->
+	<meta itemprop="headline" content="${site-name}" />
+	<meta itemprop="name" content="${site-name}" />
+	<meta itemprop="description" content="${site-description}" />
+	<meta itemprop="image" content="img/seo_banner.jpg" />
+    <!-- SEO 태그 -->
 </head>
 
 <body>

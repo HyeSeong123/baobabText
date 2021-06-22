@@ -416,6 +416,23 @@ public class BuildService {
 
 		head = head.replace("${title-bar__content}", pageName);
 
+		String siteName = "바오밥 블로그";
+		String siteSubject = "바오밥의 웹 기술 블로그";
+		String siteDescription = "웹 프로그램 일지 입니다.";
+		String siteKeywords = "HTML, CSS, JS, JavaScript, Server, DataBase, Mysql, Java, CentOS";
+		String siteDomain = "blog.baobab612.com";
+		String siteMainUrl = "https://" + siteDomain;
+		String currentDate = Util.getNowDateStr().replace(" ", "T");
+		
+		head = head.replace("${site-name}", siteName);
+		head = head.replace("${site-subject}", siteSubject);
+		head = head.replace("${site-description}", siteDescription);
+		head = head.replace("${site-domain}", siteDomain);
+		head = head.replace("${site-domain}", siteDomain);
+		head = head.replace("${current-date}", currentDate);
+		head = head.replace("${site-main-url}", siteMainUrl);
+		head = head.replace("${site-keywords}", siteKeywords);
+		
 		return head;
 	}
 
