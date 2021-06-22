@@ -888,6 +888,13 @@ input:focus {outline:none;}
   .toastui-editor-contents h1 {
   	border-bottom : 3px double white !important;
   }
+  .article-list-box{
+  	margin-bottom : 80px;
+  }
+  .article-detail__comment {
+  	width : 80%;
+  	margin : 0 auto;
+  }
   @media (min-width:200px) and (max-width:1350px){
   	.numAndTitle {
   		margin-top : 10%;
