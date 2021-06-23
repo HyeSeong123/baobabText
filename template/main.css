@@ -877,6 +877,7 @@ input:focus {outline:none;}
   {
   	width:35%;
   }
+  /* 토스트 UI 설정 변경 시작 */
   .toastui-editor-contents > *,
   .toastui-editor-contents > ul > *,
   .toastui-editor-contents > ul > li > *,
@@ -888,6 +889,12 @@ input:focus {outline:none;}
   .toastui-editor-contents h1 {
   	border-bottom : 3px double white !important;
   }
+  .toastui-editor-contents pre {
+  	background-color : #2A751C !important;
+  	margin : 2px 5px 0 8px !important;
+  	width : 90%;
+  }
+  /* 토스트 UI 설정 변경 끝
   .article-list-box{
   	margin-bottom : 80px;
   }
