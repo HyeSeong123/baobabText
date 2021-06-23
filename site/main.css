@@ -29,7 +29,7 @@ ul,li,body{
   body{
     max-width: 100%;
     overflow-x : hidden;
-    touch-action : none;
+    touch-action : pan-y;
   }
   .scroll-lock{
   	overflow:hidden;
@@ -940,6 +940,9 @@ input:focus {outline:none;}
   	}
   	.article-list-box__cover > table{
   		width : 100%;
+  	}
+  	.toastui-editor-contents pre {
+  	width : 70%;
   	}
   } 
   /* 상세페이지 메인 끝*/
