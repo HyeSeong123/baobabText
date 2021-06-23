@@ -29,6 +29,7 @@ ul,li,body{
   body{
     max-width: 100%;
     overflow-x : hidden;
+    touch-action : none;
   }
   .scroll-lock{
   	overflow:hidden;
