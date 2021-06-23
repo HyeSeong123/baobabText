@@ -312,12 +312,12 @@ public class BuildService {
 			}
 			String body = bodyTemplate.replace("${article_detail_replace}", mainContetnt.toString());
 			body = body.replace("${article_list_replace}", listContent.toString());
-			
+			body = body.replace("${site-domain}", "blog.baobab612.com");
+			body = body.replace("${file-name}", "article_detail_" + article.num + ".html");
 			sb.append(body);
 			sb.append(foot);
 
 			String fileName = "article_detail_" + article.num + ".html";
-
 			String filePath = "site/" + fileName;
 
 			Util.writeFile(filePath, sb.toString());
