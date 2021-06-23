@@ -324,8 +324,10 @@ public class BuildService {
 			System.out.println(filePath + " 생성");
 		}
 	}
-
 	private String getHeadHtml(String pageName) {
+		return getHeadHtml(pageName, null);
+	}
+	private String getHeadHtml(String pageName, Object relObj) {
 		String head = Util.getFileContents("template/head.html");
 
 		StringBuilder mainBannerContentHtml = new StringBuilder();
@@ -423,6 +425,13 @@ public class BuildService {
 		String siteDomain = "blog.baobab612.com";
 		String siteMainUrl = "https://" + siteDomain;
 		String currentDate = Util.getNowDateStr().replace(" ", "T");
+		
+		if ( relObj instanceof Article) {
+			Article article = (Article)relObj;
+			siteSubject = article.title;
+			siteDescription = article.body;
+			siteDescription = siteDescription.replaceAll("[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]", "");
+		}
 		
 		head = head.replace("${site-name}", siteName);
 		head = head.replace("${site-subject}", siteSubject);
