@@ -112,7 +112,7 @@ public class BuildService {
 		mainContent.append("<span class=\"article-writer\">" + article.extra__writer + "</span>");
 		mainContent.append("</div>");
 		mainContent.append("<div class=\"article-regDate\">");
-		mainContent.append("<span>" + article.regDate + "</span> ");
+		mainContent.append("<span>" + article.fRegDate + "</span> ");
 		mainContent.append("</div>");
 		mainContent.append("</a>");
 		}
@@ -295,8 +295,7 @@ public class BuildService {
 						newEmoge = "📕";
 						break;
 				}
-				article1.fRegDate = article1.fRegDate.replaceFirst("-", ". ");
-				article1.fRegDate = article1.fRegDate.replace("-", ".");
+
 				if ( i >= (article1.num - 3) && i <= (article1.num + 3)) {
 					if(article.num == article1.num) {
 						listContent.append("<tr class=\"selected\" onClick=location.href=\"article_detail_" + article1.num + ".html\">");
@@ -306,7 +305,7 @@ public class BuildService {
 						listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge +  "</td>");
 						listContent.append("<td class=\"articleList_title\"" + ">" + article1.title + "</td>");
 						listContent.append("<td class=\"articleList_writer\"" + ">" + article1.extra__writer + "</td>");
-						listContent.append("<td class=\"articleList_regDate\"" + ">" + article1.fRegDate + ".</td>");
+						listContent.append("<td class=\"articleList_regDate\"" + ">" + article1.fRegDate + "일</td>");
 					listContent.append("</tr>");
 				}
 			}
