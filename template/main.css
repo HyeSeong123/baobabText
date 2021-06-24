@@ -891,8 +891,11 @@ input:focus {outline:none;}
   	font-family: crayon !important;
   	color : white !important;
   }
-  .toastui-editor-contents p {
+  .toastui-editor-contents p,
+  .toastui-editor-contents ol>li:before
+   {
   	font-size : 16px !important;
+  	color : white !important; 
   }
   .toastui-editor-contents h1 {
   	border-bottom : 3px double white !important;

@@ -341,10 +341,10 @@ public class BuildService {
 			mainBannerContentHtml.append("<div class=\"main__banner\">");
 			mainBannerContentHtml.append("<div class=\"height-100p flex flex-ai-c\">");
 			mainBannerContentHtml.append("<strong>");
-			mainBannerContentHtml.append("<p>slow hea rt beat. slow be--</p>");
-			mainBannerContentHtml.append("<p>at. I've arrived</p>");
-			mainBannerContentHtml.append("<p>at your home Ay. The door to</p>");
-			mainBannerContentHtml.append("<p>get off is on the left</p>");
+			mainBannerContentHtml.append("<p>기술 블로그 입니다.</p>");
+			mainBannerContentHtml.append("<p>여러가지 웹 개발 프레임워크와 DB</p>");
+			mainBannerContentHtml.append("<p>서버, 일상 관련된 게시글이</p>");
+			mainBannerContentHtml.append("<p>올라올 예정이오니 자주 방문 부탁 드립니다.</p>");
 			mainBannerContentHtml.append("</strong>");
 			mainBannerContentHtml.append("</div>");
 			mainBannerContentHtml.append("</div>");
