@@ -36,7 +36,7 @@ function Article_menuInit(){
 	     var height;
 	     var thisis = $(this);
 	    if(thisis.text().indexOf('Web Programs') != -1){
-	        height = 180;
+	        height = 240;
 	    } else if(thisis.text().indexOf('DataBase') != -1){
 	        height = 60;
 	    } else if(thisis.text().indexOf('Server') != -1){
