@@ -749,7 +749,7 @@ input:focus {outline:none;}
     margin : 0 auto;
   }
   .blackBoard-outLine{
-    width : 50%;
+    width : 65%;
     min-height: 500px;
     border : 20px solid #C09C57;
   }
@@ -803,7 +803,7 @@ input:focus {outline:none;}
   }
   .blackBoard-bottom{
     height: 0;
-    width : calc( 50% + 40px );
+    width : calc( 65% + 40px );
     border-bottom : 60px solid #745C2E;
     border-left : 30px solid transparent;
     border-right: 30px solid transparent;
@@ -818,7 +818,7 @@ input:focus {outline:none;}
     bottom : 40px;
   }
   .blackBoard-shadow{
-    width : calc( 50% + 100px );
+    width : calc( 65% + 100px );
     height : 0;
     border-bottom : 16px solid black;
   }
