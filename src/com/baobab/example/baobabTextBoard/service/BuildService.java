@@ -345,6 +345,7 @@ public class BuildService {
 			mainBannerContentHtml.append("<p>여러가지 웹 개발 프레임워크와 DB</p>");
 			mainBannerContentHtml.append("<p>서버, 일상 관련된 게시글이</p>");
 			mainBannerContentHtml.append("<p>올라올 예정이오니 자주 방문 부탁 드립니다.</p>");
+			mainBannerContentHtml.append("<p>아직 공부중이라 틀린 부분이 많을 수 있습니다.</p>");
 			mainBannerContentHtml.append("</strong>");
 			mainBannerContentHtml.append("</div>");
 			mainBannerContentHtml.append("</div>");
