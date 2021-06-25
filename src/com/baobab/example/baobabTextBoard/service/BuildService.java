@@ -303,9 +303,9 @@ public class BuildService {
 						listContent.append("<tr onClick=location.href=\"article_detail_" + article1.num + ".html\">");
 					}
 						listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge +  "</td>");
-						listContent.append("<td class=\"articleList_title\"" + ">" + article1.title + "</td>");
-						listContent.append("<td class=\"articleList_writer\"" + ">" + article1.extra__writer + "</td>");
-						listContent.append("<td class=\"articleList_regDate\"" + ">" + article1.fRegDate + "일</td>");
+						listContent.append("<td class=\"articleList_title\"" + "><span>" +	article1.title + "</span></td>");
+						listContent.append("<td class=\"articleList_writer\"" + "><span>" + article1.extra__writer + "</span></td>");
+						listContent.append("<td class=\"articleList_regDate\"" + "><span>" + article1.fRegDate + "</span>일</td>");
 					listContent.append("</tr>");
 				}
 			}

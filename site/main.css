@@ -863,6 +863,15 @@ input:focus {outline:none;}
  }
  table > tbody > tr > td{
  	transition : all 0.5s;
+ 	
+ }
+ table > tbody > tr > td > span{
+	 width : 150px;
+	 text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display : block;
  }
  table > tbody > tr:hover > td:not(:first-child) {
  	background-color : #AEAEAE;
