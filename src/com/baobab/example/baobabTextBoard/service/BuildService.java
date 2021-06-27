@@ -450,13 +450,16 @@ public class BuildService {
 
 		String head = getHeadHtml("홈");
 		String foot = Util.getFileContents("template/foot.html");
-
 		String mainHtml = Util.getFileContents("template/index.html");
-
+		StringBuilder webPrograms = new StringBuilder();
+		
 		sb.append(head);
+		webPrograms.append("ddd");
+		mainHtml = mainHtml.replace("${article_list_webPrograms}", webPrograms.toString());
 		sb.append(mainHtml);
+		
 		sb.append(foot);
-
+		
 		String filePath = "site/index.html";
 		Util.writeFile(filePath, sb.toString());
 		System.out.println(filePath + " 생성");
