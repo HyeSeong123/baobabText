@@ -72,6 +72,9 @@ ul,li,body{
   .flex-ai-c{
     align-items : center;
   }
+  .flex-jc-ar{
+  	justify-content: space-around;
+  }
   .flex-ai-st{
     align-items: flex-start;
   }
@@ -414,7 +417,7 @@ ul,li,body{
 
 /* 메인 시작 */
   .list__banner{
-  	background-image : url("../img/list.jpg");
+  	background-image : url("img/list.jpg");
   	background-position : center;
   	background-size : 100%;
   	background-repeat : no-repeat;
@@ -638,14 +641,28 @@ ul,li,body{
 .article-none{
 	font-size : 25px;
 }
-.list_webPrograms{
-  
+.arrow{
+	font-size : 80px;
+	text-align : center;
 }
-.list_box{
-
+.article_list{
+  	text-align: center;
 }
-.list_box-detail{
-
+.article_list__h1{
+	margin-bottom : 35px;
+}
+.article_list_box {
+    width: 70%;
+    height: 230px;
+}
+.article_list_box > div {
+    width: 19%;
+    height: 100%;
+}
+.article_list_box > div > a{
+    height: 100%;
+    display : block;
+    border : 2px solid white;
 }
 input:focus {outline:none;}
   
@@ -656,7 +673,7 @@ input:focus {outline:none;}
 	.list-ad{
 		width :  600px;
 		height : 130px;
-		position : static;
+/* 		position : static; */
 		margin : 0 auto;
 	}
 	.list-ad:first-of-type{

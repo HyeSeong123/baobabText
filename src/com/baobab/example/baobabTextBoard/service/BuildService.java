@@ -2,6 +2,8 @@ package com.baobab.example.baobabTextBoard.service;
 
 import java.util.List;
 
+import javax.xml.ws.WebEndpoint;
+
 import com.baobab.example.baobabTextBoard.Container;
 import com.baobab.example.baobabTextBoard.dto.Article;
 import com.baobab.example.baobabTextBoard.dto.Board;
@@ -454,7 +456,17 @@ public class BuildService {
 		StringBuilder webPrograms = new StringBuilder();
 		
 		sb.append(head);
-		webPrograms.append("ddd");
+		
+		List<Article> articles = articleService.getArticles();
+		for ( int i=0; i < 5; i++) {
+			Article article = articles.get(i);
+			webPrograms.append("<div>");
+				webPrograms.append("<a href=\"#\">");
+					webPrograms.append("<div>" + article.fRegDate + "</div>");
+					webPrograms.append("<div>" + article.title + "</div>");
+				webPrograms.append("</a>");
+			webPrograms.append("</div>");	
+		}
 		mainHtml = mainHtml.replace("${article_list_webPrograms}", webPrograms.toString());
 		sb.append(mainHtml);
 		
