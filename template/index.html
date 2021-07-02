@@ -4,11 +4,55 @@
 		<h1 class="article_list__h1">Web Programs</h1>
 		<div class="article_list_box flex flex-jc-ar">
 			<section class="arrow left_arrow flex flex-ai-c"><i class="fas fa-caret-left"></i></section>
-			${article_list_webPrograms}
+				<div class="height-100p flex flex-jc-ar">
+					${article_list_webPrograms}
+				</div>
 			<section class="arrow right_arrow flex flex-ai-c"><i class="fas fa-caret-right"></i></section>
 		</div>
+		
+		<div class="list1_pagination">
+			<span class="ball ball1">1</span>
+			<span class="ball ball2">2</span>
+			<span class="ball ball3">3</span>
+		</div>
+		
 	</section>
 	
+	<script>
+			var width = $('.list_slide').width() + $('.arrow').width();
+			var repeat = 0;
+			$('.left_arrow').click(function(){
+				if(repeat < 0){
+					repeat=  repeat + 1;
+				}
+				gsap.to('.list_slide',{
+					x: width*(repeat),
+					duration: 0.5
+				});
+				console.log(repeat);
+			});
+			
+			$('.right_arrow').click(function(){
+				if(repeat >= -2){
+					repeat = repeat - 1;
+				}
+				gsap.to('.list_slide',{
+					x: width*(repeat),
+					duration: 0.5
+				});
+				console.log(repeat);
+			});
+			
+			$('.ball').click(function(){
+				var index = $('.ball').index(this) + (1);
+				repeat = index*-1;
+				gsap.to('.list_slide',{
+					x: width*(repeat),
+					duration: 0.7
+				});
+				console.log(index);
+			});
+	</script>
 	<div>
 		${article_list_dateBase}
 	</div>

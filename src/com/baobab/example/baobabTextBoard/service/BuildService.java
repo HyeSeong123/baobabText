@@ -458,14 +458,14 @@ public class BuildService {
 		sb.append(head);
 		
 		List<Article> articles = articleService.getArticles();
-		for ( int i=0; i < 5; i++) {
+		for ( int i=0; i < articles.size(); i++) {
 			Article article = articles.get(i);
-			webPrograms.append("<div>");
+			webPrograms.append("<div class=\"list_slide list_slide" + (i+1) + "\">");
 				webPrograms.append("<a href=\"#\">");
-					webPrograms.append("<div>" + article.fRegDate + "</div>");
-					webPrograms.append("<div>" + article.title + "</div>");
+					webPrograms.append("<div class=\"list__regDate\">" + article.fRegDate + "</div>");
+					webPrograms.append("<div class=\"list__title\">" + article.title + "</div>");
 				webPrograms.append("</a>");
-			webPrograms.append("</div>");	
+			webPrograms.append("</div>");
 		}
 		mainHtml = mainHtml.replace("${article_list_webPrograms}", webPrograms.toString());
 		sb.append(mainHtml);

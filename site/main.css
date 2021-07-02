@@ -644,6 +644,7 @@ ul,li,body{
 .arrow{
 	font-size : 80px;
 	text-align : center;
+	cursor : pointer;
 }
 .article_list{
   	text-align: center;
@@ -652,17 +653,79 @@ ul,li,body{
 	margin-bottom : 35px;
 }
 .article_list_box {
-    width: 70%;
+    width: 90%;
     height: 230px;
+    margin-bottom : 25px;
 }
-.article_list_box > div {
-    width: 19%;
+.article_list_box > div{
+	width : 100%;
+	overflow: hidden;
+	margin-bottom : 20px;
+	position : relative;
+}
+.article_list_box > div > div {
+    width: 17%;
     height: 100%;
+    transition : background-color 0.5s;
+    background-color : white;
+    position : absolute;
 }
-.article_list_box > div > a{
+.list_slide1{
+	left : 1.5%;
+}
+.list_slide2{
+	left : 21.5%;
+}
+.list_slide3{
+	left : 41.5%;
+}
+.list_slide4{
+	left : 61.5%;
+}
+.list_slide5{
+	left : 81.5%;
+}
+.list_slide6{
+	left : 101.5%;
+}
+.list_slide7{
+	left : 121.5%;
+}
+.list_slide8{
+	left : 141.5%;
+}
+.article_list_box > div > div:hover {
+    background-color : #deeb52;
+    color : black;
+}
+.article_list_box > div > div > a{
     height: 100%;
     display : block;
-    border : 2px solid white;
+}
+.list__regDate{
+	text-align : left;
+	margin-left : 10px;
+	margin-top : 10px;
+	margin-bottom: 25px;
+}
+.list__title {
+    font-size: 25px;
+    font-weight: bold;
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align : center;
+    margin: 0 auto;
+}
+.list1_pagination > span {
+    background-color: white;
+    font-size: 20px;
+    color: black;
+    padding: 0 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 5px;
 }
 input:focus {outline:none;}
   
