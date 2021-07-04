@@ -44,8 +44,8 @@
 	<meta name="title" content="바오밥 블로그" />
 	<meta name="keywords" content="HTML, CSS, JS, JavaScript, Server, DataBase, Mysql, Java, CentOS" />
 	<meta name="copyright" content="바오밥 블로그" />
-	<meta name="pubdate" content="2021-07-02T18:26:13" />
-	<meta name="lastmod" content="2021-07-02T18:26:13" />
+	<meta name="pubdate" content="2021-07-04T03:49:41" />
+	<meta name="lastmod" content="2021-07-04T03:49:41" />
 	<!-- OPENGRAPH -->
 	<meta property="og:site_name" content="바오밥 블로그" />
 	<meta property="og:type" content="website" />
@@ -54,8 +54,8 @@
 	<meta property="og:locale" content="ko_KR" />
 	<meta property="og:image" content="img/seo_banner.jpg" />
 	<meta property="og:image:alt" content="blog.baobab612.com" />
-	<meta property="og:updated_time" content="2021-07-02T18:26:13"/>
-	<meta property="og:pubdate" content="2021-07-02T18:26:13" />
+	<meta property="og:updated_time" content="2021-07-04T03:49:41"/>
+	<meta property="og:pubdate" content="2021-07-04T03:49:41" />
 	<meta property="og:url" content="https://blog.baobab612.com" />
 	<!-- TWITTER -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -126,7 +126,7 @@
 		<div class="article_list_box flex flex-jc-ar">
 			<section class="arrow left_arrow flex flex-ai-c"><i class="fas fa-caret-left"></i></section>
 				<div class="height-100p flex flex-jc-ar">
-					<div class="list_slide list_slide1"><a href="#"><div class="list__regDate">2021-07-02</div><div class="list__title">GSAP 슬라이드 만들기</div></a></div><div class="list_slide list_slide2"><a href="#"><div class="list__regDate">2021-06-25</div><div class="list__title">HTML형식 보낼 때 js,style 주의점</div></a></div><div class="list_slide list_slide3"><a href="#"><div class="list__regDate">2021-06-25</div><div class="list__title">이메일 HTML/이미지 보내기</div></a></div><div class="list_slide list_slide4"><a href="#"><div class="list__regDate">2021-06-25</div><div class="list__title">운영체제 기본</div></a></div><div class="list_slide list_slide5"><a href="#"><div class="list__regDate">2021-06-24</div><div class="list__title">웹 그라디언트/컬러 코드 사이트</div></a></div><div class="list_slide list_slide6"><a href="#"><div class="list__regDate">2021-06-22</div><div class="list__title">AUTO_INCREMENT 초기화</div></a></div>
+					<div class="list_slide list_slide1"><a href="#"><div class="list__regDate">2021-06-25</div><div class="list__title">HTML형식 보낼 때 js,style 주의점</div></a></div><div class="list_slide list_slide2"><a href="#"><div class="list__regDate">2021-06-25</div><div class="list__title">이메일 HTML/이미지 보내기</div></a></div><div class="list_slide list_slide3"><a href="#"><div class="list__regDate">2021-06-25</div><div class="list__title">운영체제 기본</div></a></div><div class="list_slide list_slide4"><a href="#"><div class="list__regDate">2021-06-24</div><div class="list__title">웹 그라디언트/컬러 코드 사이트</div></a></div><div class="list_slide list_slide5"><a href="#"><div class="list__regDate">2021-06-22</div><div class="list__title">AUTO_INCREMENT 초기화</div></a></div>
 				</div>
 			<section class="arrow right_arrow flex flex-ai-c"><i class="fas fa-caret-right"></i></section>
 		</div>
@@ -135,6 +135,7 @@
 			<span class="ball ball1">1</span>
 			<span class="ball ball2">2</span>
 			<span class="ball ball3">3</span>
+			<span class="ball ball4">4</span>
 		</div>
 		
 	</section>
@@ -150,7 +151,6 @@
 					x: width*(repeat),
 					duration: 0.5
 				});
-				console.log(repeat);
 			});
 			
 			$('.right_arrow').click(function(){
@@ -161,17 +161,19 @@
 					x: width*(repeat),
 					duration: 0.5
 				});
-				console.log(repeat);
 			});
-			
+			ball = $('.ball')
 			$('.ball').click(function(){
-				var index = $('.ball').index(this) + (1);
+				var index = ball.index(this);
+				var indexP = index+1;
 				repeat = index*-1;
+				ball.removeClass('ball-selected');
+				$('.ball' + indexP).addClass('ball-selected');
+				
 				gsap.to('.list_slide',{
 					x: width*(repeat),
 					duration: 0.7
 				});
-				console.log(index);
 			});
 	</script>
 	<div>

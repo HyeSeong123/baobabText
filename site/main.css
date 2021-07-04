@@ -84,6 +84,9 @@ ul,li,body{
   .flex-column{
     flex-direction : column;
   }
+  .list1_pagination > .ball-selected{
+  	background-color : red;
+  }
   .body-content{
     display : flex;
     flex-direction : column;

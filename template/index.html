@@ -14,6 +14,7 @@
 			<span class="ball ball1">1</span>
 			<span class="ball ball2">2</span>
 			<span class="ball ball3">3</span>
+			<span class="ball ball4">4</span>
 		</div>
 		
 	</section>
@@ -29,7 +30,6 @@
 					x: width*(repeat),
 					duration: 0.5
 				});
-				console.log(repeat);
 			});
 			
 			$('.right_arrow').click(function(){
@@ -40,17 +40,19 @@
 					x: width*(repeat),
 					duration: 0.5
 				});
-				console.log(repeat);
 			});
-			
+			ball = $('.ball')
 			$('.ball').click(function(){
-				var index = $('.ball').index(this) + (1);
+				var index = ball.index(this);
+				var indexP = index+1;
 				repeat = index*-1;
+				ball.removeClass('ball-selected');
+				$('.ball' + indexP).addClass('ball-selected');
+				
 				gsap.to('.list_slide',{
 					x: width*(repeat),
 					duration: 0.7
 				});
-				console.log(index);
 			});
 	</script>
 	<div>

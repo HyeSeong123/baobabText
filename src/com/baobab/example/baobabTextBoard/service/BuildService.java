@@ -2,8 +2,6 @@ package com.baobab.example.baobabTextBoard.service;
 
 import java.util.List;
 
-import javax.xml.ws.WebEndpoint;
-
 import com.baobab.example.baobabTextBoard.Container;
 import com.baobab.example.baobabTextBoard.dto.Article;
 import com.baobab.example.baobabTextBoard.dto.Board;
