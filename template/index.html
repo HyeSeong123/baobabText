@@ -20,40 +20,7 @@
 	</section>
 	
 	<script>
-			var width = $('.list_slide').width() + $('.arrow').width();
-			var repeat = 0;
-			$('.left_arrow').click(function(){
-				if(repeat < 0){
-					repeat=  repeat + 1;
-				}
-				gsap.to('.list_slide',{
-					x: width*(repeat),
-					duration: 0.5
-				});
-			});
 			
-			$('.right_arrow').click(function(){
-				if(repeat >= -2){
-					repeat = repeat - 1;
-				}
-				gsap.to('.list_slide',{
-					x: width*(repeat),
-					duration: 0.5
-				});
-			});
-			ball = $('.ball')
-			$('.ball').click(function(){
-				var index = ball.index(this);
-				var indexP = index+1;
-				repeat = index*-1;
-				ball.removeClass('ball-selected');
-				$('.ball' + indexP).addClass('ball-selected');
-				
-				gsap.to('.list_slide',{
-					x: width*(repeat),
-					duration: 0.7
-				});
-			});
 	</script>
 	<div>
 		${article_list_dateBase}
