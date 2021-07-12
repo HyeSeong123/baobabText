@@ -260,7 +260,6 @@ public class BuildService {
 			mainContetnt.append("</div>");
 			mainContetnt.append("</section>");
 			mainContetnt.append("<div class=\"detail__article-regDate\">" + article.fRegDate + "일</div>");
-			
 			mainContetnt.append("<div class=\"detail__article-content\">" + article.body + "</div>");
 			
 			StringBuilder listContent = new StringBuilder();
