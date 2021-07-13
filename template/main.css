@@ -988,24 +988,24 @@ input:focus {outline:none;}
   	width:35%;
   }
   /* 토스트 UI 설정 변경 시작 */
-  .toastui-editor-contents > *,
-  .toastui-editor-contents > ul > *,
-  .toastui-editor-contents > ul > li > *,
-  .toastui-editor-contents > ul > li > p 
+  .tui-editor-contents > *,
+  .tui-editor-contents > ul > *,
+  .tui-editor-contents > ul > li > *,
+  .tui-editor-contents > ul > li > p 
   {
   	font-family: crayon !important;
   	color : white !important;
   }
-  .toastui-editor-contents p,
-  .toastui-editor-contents ol>li:before
+  .tui-editor-contents p,
+  .tui-editor-contents ol>li:before
    {
   	font-size : 16px !important;
   	color : white !important; 
   }
-  .toastui-editor-contents h1 {
+  .tui-editor-contents h1 {
   	border-bottom : 3px double white !important;
   }
-  .toastui-editor-contents pre {
+  .tui-editor-contents pre {
   	background-color : #2A751C !important;
   	padding : 20px;
   	margin : 2px 5px 15px 8px !important;

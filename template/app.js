@@ -245,12 +245,16 @@ function renderCodepen(wrapperId, url) {
 
 function ArticleDetail__Body__init() {
 	let content = document.querySelector('.detail__article-content').innerHTML;
-	var viewer = new toastui.Editor.factory({
-		el : document.querySelector('.detail__article-content'),
-		initialValue : content,
-		viewer : true,
-		plugins : [youtubePlugin, codepenPlugin]
-	});	
+	var Vcount = $('.viewer').length;
+	var Ecount = $('.editor').length;
+	console.log(Vcount);
+	console.log(Ecount);
+		var viewer = new toastui.Editor.factory({
+			el : document.querySelector('.viewer'),
+			initialValue : content,
+			viewer : true,
+			plugins : [youtubePlugin, codepenPlugin]
+		});	
 }
 
 ArticleDetail__Body__init();
