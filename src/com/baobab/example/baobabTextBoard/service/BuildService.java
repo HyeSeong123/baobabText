@@ -242,79 +242,28 @@ public class BuildService {
 
 	private void buildArticlesDetailPage() {
 		List<Article> articles = articleService.getArticles();
-
+		
 		String bodyTemplate = Util.getFileContents("template/article_detail.html");
 		String foot = Util.getFileContents("template/foot.html");
 
 		for (Article article : articles) {
 			StringBuilder sb = new StringBuilder();
-			article.fRegDate = article.fRegDate.substring(2,article.fRegDate.length());
-			article.fRegDate = article.fRegDate.replaceFirst("-", "년 ");
-			article.fRegDate = article.fRegDate.replace("-", "월 ");
-			sb.append(getHeadHtml("article_detail_" + article.num));
-
-			StringBuilder mainContetnt = new StringBuilder();
-			mainContetnt.append("<section class=\"numAndTitle flex\">");
-			mainContetnt.append("<div class=\"detail__article-num\">" + article.num + ". </div>");
-			mainContetnt.append("<div class=\"detail__article-title\">" + article.title);
-			mainContetnt.append("</div>");
-			mainContetnt.append("</section>");
-			mainContetnt.append("<div class=\"detail__article-regDate\">" + article.fRegDate + "일</div>");
-			mainContetnt.append("<div class=\"detail__article-content\">" + article.body + "</div>");
+			String head = getHeadHtml("article_detail", article);
+			sb.append(head);
 			
-			StringBuilder listContent = new StringBuilder();
-			int i = article.num;
-			int emoge = 0;
-			String newEmoge = null;
-			for (Article article1 : articles) {
-				if(emoge == 7) {
-					emoge = 0;
-				}
-				emoge++;
-				switch(emoge) {
-					case 1:
-						newEmoge = "🗒";
-						break;
-					case 2:
-						newEmoge = "📖";
-						break;
-					case 3:
-						newEmoge = "📱";
-						break;
-					case 4:
-						newEmoge = "💻";
-						break;
-					case 5:
-						newEmoge = "✏";
-						break;
-					case 6:
-						newEmoge = "🖋";
-						break;
-					case 7:
-						newEmoge = "📕";
-						break;
-				}
-
-				if ( i >= (article1.num - 3) && i <= (article1.num + 3)) {
-					if(article.num == article1.num) {
-						listContent.append("<tr class=\"selected\" onClick=location.href=\"article_detail_" + article1.num + ".html\">");
-					} else {
-						listContent.append("<tr onClick=location.href=\"article_detail_" + article1.num + ".html\">");
-					}
-						listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge +  "</td>");
-						listContent.append("<td class=\"articleList_title\"" + "><span>" +	article1.title + "</span></td>");
-						listContent.append("<td class=\"articleList_writer\"" + "><span>" + article1.extra__writer + "</span></td>");
-						listContent.append("<td class=\"articleList_regDate\"" + "><span>" + article1.fRegDate + "</span>일</td>");
-					listContent.append("</tr>");
-				}
-			}
-			String body = bodyTemplate.replace("${article_detail_replace}", mainContetnt.toString());
-			body = body.replace("${article_list_replace}", listContent.toString());
-			body = body.replace("${site-domain}", "blog.baobab612.com");
-			body = body.replace("${file-name}", "article_detail_" + article.num + ".html");
+			
+			String articleBodyForPrint = article.body;
+			articleBodyForPrint = articleBodyForPrint.replaceAll("<script type=\"text/javascript\">", "t-script");
+			String articleNum = Integer.toString(article.num);
+			String body = bodyTemplate.replace("${article-detail__num}" , articleNum);
+			body = body.replace("${article-detail__title}" , article.title);
+			body = body.replace("${article-detail__regDate}", article.regDate);
+			body = body.replace("${article-detail__writer}", article.extra__writer);
+			body = body.replace("${article-detail__content}", articleBodyForPrint);
+			
 			sb.append(body);
 			sb.append(foot);
-
+			
 			String fileName = "article_detail_" + article.num + ".html";
 			String filePath = "site/" + fileName;
 

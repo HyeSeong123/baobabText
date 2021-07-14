@@ -244,17 +244,35 @@ function renderCodepen(wrapperId, url) {
 // codepen 플러그인 끝
 
 function ArticleDetail__Body__init() {
-	let content = document.querySelector('.detail__article-content').innerHTML;
-	var Vcount = $('.viewer').length;
-	var Ecount = $('.editor').length;
-	console.log(Vcount);
-	console.log(Ecount);
-		var viewer = new toastui.Editor.factory({
-			el : document.querySelector('.viewer'),
-			initialValue : content,
+	
+	function Editor__init() {
+	  $('.editor').each(function(index, node) {
+	    var initialValue = $(node).prev().html().trim().replace(/t-script/gi, 'script');
+	    
+	    var editor = new toastui.Editor({
+	      el: node,
+	      previewStyle: 'vertical',
+	      initialValue: initialValue,
+	      height:600,
+	      plugins: [toastui.Editor.plugin.codeSyntaxHighlight, youtubePlugin, codepenPlugin]
+	    });
+	  });
+	}
+	Editor__init();
+	
+	function EditorViewer__init() {
+		$('.viewer').each(function(index,node){
+			var initialValue = $(node).prev().html().trim().replace(/t-script/gi, 'script');
+			
+			var viewer = new toastui.Editor.factory({
+			el : node,
+			initialValue : initialValue,
 			viewer : true,
 			plugins : [youtubePlugin, codepenPlugin]
-		});	
+			});	
+		});
+	}
+	EditorViewer__init();
 }
 
 ArticleDetail__Body__init();

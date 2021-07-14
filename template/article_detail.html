@@ -1,27 +1,20 @@
-<!-- 하이라이트 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
-
-<!-- 토스트 UI 에디터, 자바스크립트 코어 -->
-<script src="https://uicdn.toast.com/editor/2.5.2/toastui-editor-all.min.js"></script>
-
-<!-- 코드 미러 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" />
-<!-- 토스트 UI 에디터, CSS 코어 -->
-<link rel="stylesheet" href="https://uicdn.toast.com/editor/2.5.2/toastui-editor.min.css" />
-
-<!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
-<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/1.0.0/toastui-editor-plugin-code-syntax-highlight.min.js"></script>
-
 <main class="detail__main">
 
 	<section class="detail__main-cover flex">
 		<div class="blackBoard">
 			<div class="blackBoard-outLine">
 				<div class="blackBoard-inner flex flex-column">
-					${article_detail_replace}				
+					<section class="numAndTitle flex">
+						<div class="detail__article-num">${article-detail__num}.</div>
+						<div class="detail__article-title">${article-detail__title}</div>
+					</section>
+					<div class="detail__article-regDate">${article-detail__regDate}</div>
+					<div class="detail__article-content">${article-detail__content}</div>
+						
 				</div>
 			</div>
+			
+			
 			
 			<div class="blackBoard-bottom">
 				<div class="blackBoard-img flex flex-jc-end">
