@@ -958,11 +958,8 @@ input:focus {outline:none;}
  	
  }
  table > tbody > tr > td > span{
-	 width : 150px;
-	 text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+	width : 100%;
+	text-align: center;
     display : block;
  }
  table > tbody > tr:hover > td:not(:first-child) {
@@ -997,7 +994,10 @@ input:focus {outline:none;}
   	color : white !important;
   }
   .tui-editor-contents p,
-  .tui-editor-contents ol>li:before
+  .tui-editor-contents ol li:before,
+  .tui-editor-contents ul,
+  .tui-editor-contents ol
+  
    {
   	font-size : 16px !important;
   	color : white !important; 
@@ -1011,6 +1011,9 @@ input:focus {outline:none;}
   	margin : 2px 5px 15px 8px !important;
   	width : 90%;
   	border : 2px dashed yellow !important;
+  }
+  #text{
+  	color : white !important;
   }
   /* 토스트 UI 설정 변경 끝 */
   .article-list-box{

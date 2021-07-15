@@ -251,18 +251,71 @@ public class BuildService {
 			String head = getHeadHtml("article_detail", article);
 			sb.append(head);
 			
-			
 			String articleBodyForPrint = article.body;
+			/* 보기 좋게하기위해 날짜 형식 수정 */
+			String newArticleRegDate = article.fRegDate.substring(2,article.fRegDate.length());
+			newArticleRegDate= newArticleRegDate.replaceFirst("-", "년");
+			newArticleRegDate= newArticleRegDate.replace("-", "월");
 			articleBodyForPrint = articleBodyForPrint.replaceAll("<script type=\"text/javascript\">", "t-script");
 			String articleNum = Integer.toString(article.num);
 			String body = bodyTemplate.replace("${article-detail__num}" , articleNum);
 			body = body.replace("${article-detail__title}" , article.title);
-			body = body.replace("${article-detail__regDate}", article.regDate);
+			body = body.replace("${article-detail__regDate}", newArticleRegDate);
 			body = body.replace("${article-detail__writer}", article.extra__writer);
 			body = body.replace("${article-detail__content}", articleBodyForPrint);
 			
+			StringBuilder listContent = new StringBuilder();
+			int i = article.num;
+			int emoge = 0;
+			String newEmoge = null;
+			for (Article article1 : articles) {
+				if(emoge == 7) {
+					emoge = 0;
+				}
+				emoge++;
+				switch(emoge) {
+					case 1:
+						newEmoge = "🗒";
+						break;
+					case 2:
+						newEmoge = "📖";
+						break;
+					case 3:
+						newEmoge = "📱";
+						break;
+					case 4:
+						newEmoge = "💻";
+						break;
+					case 5:
+						newEmoge = "✏";
+						break;
+					case 6:
+						newEmoge = "🖋";
+						break;
+					case 7:
+						newEmoge = "📕";
+						break;
+				}
+
+				if ( i >= (article1.num - 3) && i <= (article1.num + 3)) {
+					if(article.num == article1.num) {
+						listContent.append("<tr class=\"selected\" onClick=location.href=\"article_detail_" + article1.num + ".html\">");
+					} else {
+						listContent.append("<tr onClick=location.href=\"article_detail_" + article1.num + ".html\">");
+					}
+						listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge +  "</td>");
+						listContent.append("<td class=\"articleList_title\"" + "><span>" +	article1.title + "</span></td>");
+						listContent.append("<td class=\"articleList_writer\"" + "><span>" + article1.extra__writer + "</span></td>");
+						listContent.append("<td class=\"articleList_regDate\"" + "><span>" + article1.fRegDate + "일</span></td>");
+					listContent.append("</tr>");
+				}
+			}
+			body = body.replace("${article_list_replace}", listContent.toString());
+			
 			sb.append(body);
 			sb.append(foot);
+			
+			
 			
 			String fileName = "article_detail_" + article.num + ".html";
 			String filePath = "site/" + fileName;
@@ -407,7 +460,7 @@ public class BuildService {
 		for ( int i=0; i < articles.size(); i++) {
 			Article article = articles.get(i);
 			webPrograms.append("<div class=\"list_slide list_slide" + (i+1) + "\">");
-				webPrograms.append("<a href=\"#\">");
+				webPrograms.append("<a href=\"article_detail_" + article.num + ".html\">");
 					webPrograms.append("<div class=\"list__regDate\">" + article.fRegDate + "</div>");
 					webPrograms.append("<div class=\"list__title\">" + article.title + "</div>");
 				webPrograms.append("</a>");
