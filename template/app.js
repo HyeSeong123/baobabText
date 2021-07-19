@@ -154,53 +154,126 @@ function index_ballInit(index){
 	if(indexP == 4){
 		ballIndex.addClass('ball-selected');
 	}
+	if(indexP == 5){
+		ballIndex.addClass('ball-selected');
+	}
+	if(indexP == 6){
+		ballIndex.addClass('ball-selected');
+	}
+	if(indexP == 7){
+		ballIndex.addClass('ball-selected');
+	}
+	if(indexP == 8){
+		ballIndex.addClass('ball-selected');
+	}
 }
 
 Article__head__init();
 Article_menuInit();
 index_ballInit(indexP);
 
-var width = $('.list_slide').width() + $('.arrow').width();
-var repeat = 0;
-
-$('.left_arrow').click(function(){
+setTimeout(function(){
+	var width = $('.list_slide').width();
+	var widthMinus = width/0.835 - width;
+	var widthMinus2 = width/0.867 - width;
+	var width2 = width + widthMinus2;
 	
-	if(repeat < 0){
-		repeat=  repeat + 1;
+	function sizeInit(){
+		width = $('.list_slide').width();
+		widthMinus = width/0.83 - width;
+		widthMinus2 = width/0.864 - width;
+		width2 = width + widthMinus2;
 	}
-	indexP = (repeat*-1) + (+1);
-	index_ballInit(indexP);
-	gsap.to('.list_slide',{
-		x: width*(repeat),
-		duration: 0.5
-	});
-});
-
-$('.right_arrow').click(function(){
 	
-	if(repeat >= -2){
-		repeat = repeat - 1;
+	width = width + widthMinus;
+	
+	var repeat = 0;
+	var win_width = $(window).width();
+	var ball_end = 0;
+	if(win_width >= 1000){
+		ball_end = -2;
 	}
-	indexP = (repeat*-1) + (+1);
-	index_ballInit(indexP);
-	gsap.to('.list_slide',{
-		x: width*(repeat),
-		duration: 0.5
+	if(win_width >= 700 && win_width < 1000){
+		ball_end = -3;
+	}
+	if(win_width >= 240 && win_width < 700){
+		ball_end = -4;
+	}
+	console.log(width);
+	$('.left_arrow').click(function(){
+		if(repeat < 0){
+			repeat=  repeat + 1;
+		}
+		indexP = (repeat*-1) + (+1);
+		index_ballInit(indexP);
+		if(repeat == 0){
+			gsap.to('.list_slide',{
+			x: width*(repeat),
+			duration: 0.5
+			});	
+		}
+		if(repeat < 0){
+			gsap.to('.list_slide',{
+			x: width2*(repeat),
+			duration: 0.5
+			});	
+		}
+		console.log(repeat);
 	});
-});
-$('.ball').click(function(){
-	var index = ball.index(this);
 	
-	indexP = index+1;
-	repeat = index*-1;
-	ball.removeClass('ball-selected');
-	$('.ball' + indexP).addClass('ball-selected');
-	
-	gsap.to('.list_slide',{
-		x: width*(repeat),
-		duration: 0.7
+	$('.right_arrow').click(function(){
+		if(repeat >= ball_end){
+			repeat = repeat - 1;
+		}
+		indexP = (repeat*-1) + (+1);
+		index_ballInit(indexP);
+		if(repeat == 0){
+			gsap.to('.list_slide',{
+			x: width*(repeat),
+			duration: 0.5
+			});
+		}
+		if(repeat < 0){
+			gsap.to('.list_slide',{
+			x: width2*(repeat),
+			duration: 0.5
+			});
+		}
+		
 	});
-});
+	$('.ball').click(function(){
+		var index = ball.index(this);
+		
+		indexP = index+1;
+		repeat = index*-1;
+		ball.removeClass('ball-selected');
+		$('.ball' + indexP).addClass('ball-selected');
+		
+		if(repeat == 0){
+			gsap.to('.list_slide',{
+				x: width*(repeat),
+				duration: 0.7
+			});
+		}
+		if(repeat < 0){
+			gsap.to('.list_slide',{
+				x: width2*(repeat),
+				duration: 0.7
+			});
+		}
+	});
+
+},500);
+
+$(window).resize(function(){
+	sizeInit();
+	index_ballInit(1);
+	repeat=0;
+	gsap.to('.list_slide',{
+			x: 0,
+			duration: 0.7
+		});
+})
 //유튜브 플러그인 시작
 function youtubePlugin() {
   toastui.Editor.codeBlockManager.setReplacer('youtube', youtubeId => {

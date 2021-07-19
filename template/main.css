@@ -697,6 +697,9 @@ ul,li,body{
 .list_slide8{
 	left : 141.5%;
 }
+.ball5,.ball6,.ball7,.ball8{
+	display : none;
+}
 .article_list_box > div > div:hover {
     background-color : #deeb52;
     color : black;
@@ -714,7 +717,7 @@ ul,li,body{
 .list__title {
     font-size: 25px;
     font-weight: bold;
-    width: 200px;
+    width: 55%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -731,7 +734,109 @@ ul,li,body{
     margin: 0 5px;
 }
 input:focus {outline:none;}
-  
+  @media (min-width:1000px) and (max-width:1300px){
+  	.article_list_box > div > div {
+  	width : 22%;
+  	}
+  	.arrow{
+	font-size : 70px;
+  	}
+  	.list_slide1{
+	left : 1.5%;
+	}
+	.list_slide2{
+		left : 26.5%;
+	}
+	.list_slide3{
+		left : 51.5%;
+	}
+	.list_slide4{
+		left : 76.5%;
+	}
+	.list_slide5{
+		left : 101.5%;
+	}
+	.list_slide6{
+		left : 126.5%;
+	}
+	.list_slide7{
+		left : 151.5%;
+	}
+	.list_slide8{
+		left : 176.5%;
+	}
+  }
+  @media (min-width:700px) and (max-width:1000px){
+  	.article_list_box > div > div {
+  	width : 28%;
+  	}
+  	.arrow{
+	font-size : 50px;
+  	}
+  	.list_slide1{
+	left : 3%;
+	}
+	.list_slide2{
+		left : 36.5%;
+	}
+	.list_slide3{
+		left : 68.5%;
+	}
+	.list_slide4{
+		left : 100.5%;
+	}
+	.list_slide5{
+		left : 132.5%;
+	}
+	.list_slide6{
+		left : 164.5%;
+	}
+	.list_slide7{
+		left : 196.5%;
+	}
+	.list_slide8{
+		left : 228.5%;
+	}
+	.ball5{
+		display : inline;
+	}
+  }
+  @media (min-width:240px) and (max-width:700px){
+  	.article_list_box > div > div {
+  		width : 43%;
+  	}
+  	.arrow{
+		font-size : 50px;
+  	}
+  	.list_slide1{
+		left : 3%;
+	}
+	.list_slide2{
+		left : 53%;
+	}
+	.list_slide3{
+		left : 103%;
+	}
+	.list_slide4{
+		left : 153%;
+	}
+	.list_slide5{
+		left : 203%;
+	}
+	.list_slide6{
+		left : 253%;
+	}
+	.list_slide7{
+		left : 263%;
+	}
+	.list_slide8{
+		left : 346%;
+	}
+	.ball5, .ball6{
+		display : inline;
+	}
+	
+  }
   @media (min-width:250px) and (max-width:1100px){
   	main{
   		padding-bottom : 30px;
@@ -739,7 +844,7 @@ input:focus {outline:none;}
 	.list-ad{
 		width :  600px;
 		height : 130px;
-/* 		position : static; */
+ 		position : static; 
 		margin : 0 auto;
 	}
 	.list-ad:first-of-type{
