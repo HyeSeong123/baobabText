@@ -263,11 +263,21 @@ $(window).resize(function(){
 	repeat=0;
 	indexP = 1;
 	index_ballInit(1);
+	win_width = $(window).width();
+	if(win_width >= 1000){
+	ball_end = -2;
+	}
+	if(win_width >= 700 && win_width < 1000){
+		ball_end = -3;
+	}
+	if(win_width >= 240 && win_width < 700){
+		ball_end = -4;
+	}
 	gsap.to('.list_slide',{
 		x: 0,
 		duration: 0.7
 	});
-	console.log(repeat);
+	
 })
 //유튜브 플러그인 시작
 function youtubePlugin() {
@@ -319,10 +329,10 @@ function ArticleDetail__Body__init() {
 	    
 	    var editor = new toastui.Editor({
 	      el: node,
-	      previewStyle: 'vertical',
+	      previewStyle: 'preview',
 	      initialValue: initialValue,
 	      height:600,
-	      plugins: [toastui.Editor.plugin.codeSyntaxHighlight, youtubePlugin, codepenPlugin]
+	      plugins: [youtubePlugin, codepenPlugin]
 	    });
 	  });
 	}
@@ -341,6 +351,12 @@ function ArticleDetail__Body__init() {
 		});
 	}
 	EditorViewer__init();
+}
+$('.btn_up_box').click(function(){
+	btnUp_action();
+});
+function btnUp_action(){
+	window.scrollTo(0,0);
 }
 
 ArticleDetail__Body__init();
