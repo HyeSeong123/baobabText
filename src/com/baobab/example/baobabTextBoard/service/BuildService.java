@@ -30,7 +30,7 @@ public class BuildService {
 		Util.copyFolder("img", "site/img");
 		Util.copyFolder("fonts", "site/fonts");
 
-		/*loadDisqusData();*/
+		loadDisqusData();
 
 		buildIndexPage();
 		buildArticleListPages();
@@ -49,8 +49,8 @@ public class BuildService {
 
 				Map<String, Object> modifyArgs = new HashMap<>();
 				modifyArgs.put("num", article.num);
-				modifyArgs.put("like", article.like);
-				modifyArgs.put("replyCount", article.replyCount);
+				modifyArgs.put("like", likes);
+				modifyArgs.put("replyCount", replyCount);
 
 				articleService.doModify(modifyArgs);
 			}
