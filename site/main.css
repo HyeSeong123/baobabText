@@ -1132,7 +1132,9 @@ input:focus {outline:none;}
   	width : 100%;
   	height : 500px;
   }
-  
+  .tui-editor-contents a{
+  	word-break : break-all;
+  }
   /* 토스트 UI 설정 변경 끝 */
   .article-list-box{
   	margin-bottom : 80px;
