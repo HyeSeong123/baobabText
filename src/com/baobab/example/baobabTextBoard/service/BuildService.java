@@ -263,6 +263,8 @@ public class BuildService {
 			body = body.replace("${article-detail__regDate}", newArticleRegDate);
 			body = body.replace("${article-detail__writer}", article.extra__writer);
 			body = body.replace("${article-detail__content}", articleBodyForPrint);
+			body = body.replace("${site-domain}", "blog.baobab612.com");
+			body = body.replace("${file-name}", "article_detail_" + articleNum + ".html");
 			
 			StringBuilder listContent = new StringBuilder();
 			int i = article.num;
