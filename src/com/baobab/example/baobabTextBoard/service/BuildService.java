@@ -314,9 +314,7 @@ public class BuildService {
 			
 			sb.append(body);
 			sb.append(foot);
-			
-			
-			
+
 			String fileName = "article_detail_" + article.num + ".html";
 			String filePath = "site/" + fileName;
 
@@ -429,6 +427,7 @@ public class BuildService {
 		
 		if ( relObj instanceof Article) {
 			Article article = (Article)relObj;
+			siteName = article.title;
 			siteSubject = article.title;
 			siteDescription = article.body;
 			siteDescription = siteDescription.replaceAll("[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]", "");
