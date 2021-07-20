@@ -407,7 +407,7 @@ ul,li,body{
 
 @media (min-width:200px) and (max-width:600px){
   .main__banner{
-    background-image: url("../new공부블로그/img/mobile-2.png");
+    background-image: url("img/mobile-2.png");
   }
 }
 @media (max-width:550px){
