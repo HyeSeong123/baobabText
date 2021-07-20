@@ -415,8 +415,6 @@ public class BuildService {
 		}
 		head = head.replace("${menu-bar__menu-1__board-menu-content-mobile}", boardMenu1ContentHtmlMobile.toString());
 
-		head = head.replace("${title-bar__content}", pageName);
-
 		String siteName = "바오밥 블로그";
 		String siteSubject = "바오밥의 웹 기술 블로그";
 		String siteDescription = "웹 프로그램 일지 입니다.";
@@ -430,9 +428,10 @@ public class BuildService {
 			siteName = article.title;
 			siteSubject = article.title;
 			siteDescription = article.body;
+			pageName = "게시물_" + siteName;
 			siteDescription = siteDescription.replaceAll("[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]", "");
 		}
-		
+		head = head.replace("${title-bar__content}", pageName);
 		head = head.replace("${site-name}", siteName);
 		head = head.replace("${site-subject}", siteSubject);
 		head = head.replace("${site-description}", siteDescription);
