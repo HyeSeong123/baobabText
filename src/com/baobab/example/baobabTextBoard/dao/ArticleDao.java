@@ -24,6 +24,12 @@ public class ArticleDao {
 		
 		sql.append("ORDER BY A.num DESC");
 		
+		List<Map<String, Object>> articleMapList = MysqlUtil.selectRows(sql);
+		
+		for (Map<String, Object> articleMap : articleMapList) {
+			articles.add(new Article(articleMap));
+		}
+		
 		return articles;
 	}
 
