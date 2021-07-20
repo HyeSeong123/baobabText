@@ -1090,6 +1090,9 @@ input:focus {outline:none;}
   	width:35%;
   }
   /* 토스트 UI 설정 변경 시작 */
+  .viewer{
+  	width : 90%;
+  }
   .tui-editor-contents > *,
   .tui-editor-contents > ul > *,
   .tui-editor-contents > ul > li > *,
@@ -1107,15 +1110,20 @@ input:focus {outline:none;}
   	font-size : 16px !important;
   	color : white !important; 
   }
+  
   .tui-editor-contents h1 {
   	border-bottom : 3px double white !important;
   }
   .tui-editor-contents pre {
   	background-color : #2A751C !important;
   	padding : 20px;
-  	margin : 2px 5px 15px 8px !important;
-  	width : 90%;
   	border : 2px dashed yellow !important;
+  }
+  .tui-editor-contents pre code{
+  	display : block !important;
+  }
+  .tui-editor-contents pre code > * {
+  	display : block !important;
   }
   #text{
   	color : white !important;
@@ -1237,4 +1245,11 @@ input:focus {outline:none;}
 	
 }
 /* 상단 이동 버튼 끝*/
+@media (min-width:200px) and (max-width:640px){
+  .btn_up_box{
+  	width : 40px;
+  	height : 40px;
+  	
+  }
+}
 /* 커스터 마이징 끝*/
