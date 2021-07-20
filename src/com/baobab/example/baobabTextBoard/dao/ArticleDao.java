@@ -24,12 +24,6 @@ public class ArticleDao {
 		
 		sql.append("ORDER BY A.num DESC");
 		
-		List<Map<String, Object>> articleMapList = MysqlUtil.selectRows(sql);
-		
-		for (Map<String, Object> articleMap : articleMapList) {
-			articles.add(new Article(articleMap));
-		}
-		
 		return articles;
 	}
 
@@ -75,13 +69,31 @@ public class ArticleDao {
 		return MysqlUtil.delete(sql);
 	}
 
-	public void articleModify(int num, String title, String body) {
+	public void articleModify(Map<String, Object> args) {
 		SecSql sql = new SecSql();
+		
+		int num = (int) args.get("num");
+		String title = args.get("title") != null ? (String) args.get("title") : null;
+		String body = args.get("body") != null ? (String) args.get("body") : null;
+		int like = args.get("like") != null ? (int) args.get("like") : -1;
+		int replyCount = args.get("replyCount") != null ? (int) args.get("replyCount") : -1;
 		
 		sql.append("UPDATE article");
 		sql.append("SET updateDate = NOW(),");
-		sql.append("title = ?,", title);
-		sql.append("body = ?", body);
+		
+		if ( title != null) {
+			sql.append("title = ?,", title);
+		}
+		if ( body != null) {
+			sql.append("`body` = ?,", body);
+		}
+		if ( like != -1) {
+			sql.append("`like` = ?,", like);
+		}
+		if ( replyCount != -1) {
+			sql.append("replyCount = ?", replyCount);
+		}
+		
 		sql.append("WHERE num = ?", num);
 		
 		MysqlUtil.update(sql);
@@ -133,9 +145,9 @@ public class ArticleDao {
 		sql.append("ON A.memberNum = M.num");
 		sql.append("LEFT JOIN member AS B");
 		sql.append("ON A.boardNum = B.num");
-		
-		sql.append("WHERE A.boardNum = ?", num);
-		
+		if (num != 0) {
+			sql.append("WHERE A.boardNum = ?", num);
+		}
 		sql.append("GROUP BY A.num");
 		
 		List<Map<String, Object>> articleMapList = MysqlUtil.selectRows(sql);

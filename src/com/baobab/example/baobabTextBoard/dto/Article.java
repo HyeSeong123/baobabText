@@ -12,11 +12,12 @@ public class Article {
 	public String body;
 	public int hitsCount;
 	public int replyCount;
+	public int like;
 	
 	public String extra__writer;
 	public String extra__board;
 	public String fRegDate;
-	public Article(int num, String regDate, String updateDate, int memberNum, int boardNum, String title, String body, int hitsCount, int replyCount, String extra__writer, String extra__board) {
+	public Article(int num, String regDate, String updateDate, int memberNum, int boardNum, String title, String body, int hitsCount, int replyCount, int like, String extra__writer, String extra__board) {
 		this.num = num;
 		this.regDate = regDate;
 		this.updateDate = updateDate;
@@ -26,6 +27,7 @@ public class Article {
 		this.body = body;
 		this.hitsCount = hitsCount;
 		this.replyCount = replyCount;
+		this.like = like;
 		this.extra__writer = extra__writer;
 	}
 	
@@ -39,6 +41,7 @@ public class Article {
 		this.body = (String) articleMap.get("body"); 
 		this.hitsCount = (int) articleMap.get("hitsCount");
 		this.replyCount = (int) articleMap.get("replyCount");
+		this.like = (int) articleMap.get("like");
 		if(articleMap.containsKey("extra__writer")) {
 			this.extra__writer = (String) articleMap.get("extra__writer");
 		}
@@ -54,7 +57,10 @@ public class Article {
 	public String toString() {
 		return "Article [num=" + num + ", regDate=" + regDate + ", updateDate=" + updateDate + ", memberNum="
 				+ memberNum + ", boardNum=" + boardNum + ", title=" + title + ", body=" + body + ", hitsCount="
-				+ hitsCount + ", replyCount=" + replyCount + ", extra__writer=" + extra__writer + ", extra__board="
-				+ extra__board + ", fRegDate=" + fRegDate + "]";
+				+ hitsCount + ", replyCount=" + replyCount + ", like=" + like + ", extra__writer=" + extra__writer
+				+ ", extra__board=" + extra__board + ", fRegDate=" + fRegDate + "]";
 	}
+
+
+
 }

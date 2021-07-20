@@ -1,6 +1,8 @@
 package com.baobab.example.baobabTextBoard.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.baobab.example.baobabTextBoard.dao.ArticleDao;
 import com.baobab.example.baobabTextBoard.dto.Article;
@@ -30,7 +32,12 @@ public class ArticleService {
 	}
 
 	public void doModify(int inputNum, String title, String body) {
-		articleDao.articleModify(inputNum,title,body);
+		Map<String, Object> modifyArgs = new HashMap<>();
+		modifyArgs.put("num", inputNum);
+		modifyArgs.put("title", title);
+		modifyArgs.put("body", body);
+		
+		doModify(modifyArgs);
 	}
 
 	public List<Board> getBoards() {
@@ -47,6 +54,14 @@ public class ArticleService {
 
 	public Board getBoardsByCode(String title) {
 		return articleDao.getBoardsByCode(title);
+	}
+
+	public void doModify(Map<String, Object> modifyArgs) {
+		articleDao.articleModify(modifyArgs);
+	}
+
+	public List<Article> getForPrintArticlesByBoardNum() {
+		return articleDao.getForPrintArticlesByBoardNum(0);
 	}
 
 

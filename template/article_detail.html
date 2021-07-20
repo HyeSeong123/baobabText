@@ -10,63 +10,74 @@
 					</section>
 					<div class="detail__article-regDate">${article-detail__regDate}일</div>
 					<div class="detail__article-content">${article-detail__content}</div>
-						
+
 				</div>
 			</div>
-			
-			
-			
+
+
+
 			<div class="blackBoard-bottom">
 				<div class="blackBoard-img flex flex-jc-end">
-					<span class="img-box eraser"> <img src="img/eraser.png" alt=""></span>
-	                <span class="img-box chalks"><img src="img/chalks.png" alt=""></span>
+					<span class="img-box eraser">
+						<img src="img/eraser.png" alt="">
+					</span>
+					<span class="img-box chalks">
+						<img src="img/chalks.png" alt="">
+					</span>
 				</div>
 			</div>
 			<div class="blackBoard-shadow"></div>
 		</div>
 	</section>
-	
+
 	<section class="article-list-box">
 		<div class="article-list-box__cover flex flex-column flex-ai-c">
 			<table border="1">
 				<thead>
 					<tr>
-						<th></td>
-						<th class="sample_width">제목</td>
-						<th>작성자</td>
-						<th>작성일</td>
+						<th>
+						</td>
+						<th class="sample_width">제목
+						</td>
+						<th>작성자
+						</td>
+						<th>작성일
+						</td>
 					</tr>
 				</thead>
-				
-				<tbody>
-					${article_list_replace}	
+
+				<tbody>${article_list_replace}
 				</tbody>
 			</table>
-			
+
 		</div>
 	</section>
-	
+
 	<div class="article-detail__comment">
 		<div id="disqus_thread"></div>
 		<script>
-		    var disqus_config = function (){
-		    	this.page.url = 'https://${site-domain}/${file-name}';
-		    	this.page.identifier = '${file-name}';
-		    };
-		    (function() { // DON'T EDIT BELOW THIS LINE
-		    var d = document, s = d.createElement('script');
-		    s.src = 'https://newbaobabblog.disqus.com/embed.js';
-		    s.setAttribute('data-timestamp', +new Date());
-		    (d.head || d.body).appendChild(s);
-		    })();
+				var disqus_config = function () {
+			        this.page.url = 'https://${site-domain}/${file-name}';
+			        this.page.identifier = '${file-name}';
+			    };
+			(function() { // DON'T EDIT BELOW THIS LINE
+				var d = document, s = d.createElement('script');
+				s.src = 'https://baobabblog210721.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+			})();
 		</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<noscript>
+			Please enable JavaScript to view the
+			<a href="https://disqus.com/?ref_noscript">comments powered by
+				Disqus.</a>
+		</noscript>
 	</div>
-	
+
 	<nav class="btn_up_box flex flex-ai-c flex-jc-c">
 		<div>
 			<i class="fas fa-chevron-up"></i>
 		</div>
 	</nav>
-	
+
 </main>
