@@ -8,6 +8,6 @@ public class AppConfig {
 		return "바오밥 블로그";
 	}
 	public String getDisqusForumName() {
-		return "baobab612-210721-1";
+		return "baobabBlog210721";
 	}
 }
