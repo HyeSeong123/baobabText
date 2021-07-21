@@ -556,7 +556,7 @@ ul,li,body{
 }
 .article-list:hover .article-writer,
 .article-list:hover .article-title,
-.article-list:hover .article-regDate
+.article-list:hover .article-inform
 {
   color : black;
 }
@@ -582,11 +582,17 @@ ul,li,body{
 	background-color : #FFF700;
 	color : black;
 }
-.article-list > .article-regDate {
+.article-list > .article-inform {
   width : 15%;
   display : flex;
   align-items : center;
   color : #D3D4C6; 
+}
+.article-inform > span{
+	height : 50%;
+	display : flex;
+	align-items: center;
+	font-weight: bold;
 }
 .article-1{
 	background-color: white;
@@ -767,6 +773,20 @@ input:focus {outline:none;}
 		left : 176.5%;
 	}
   }
+  @media (min-width:821px){
+ 	 .article-list > .article-writerAndTitle > span{
+			width : 600px;
+			display:block;
+			overflow:hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+  }
+  @media (min-width:701px) and (max-width:820){
+ 	 .article-writerAndTitle{
+			width : 50%;
+		}
+  }
   @media (min-width:700px) and (max-width:1000px){
   	.article_list_box > div > div {
   	width : 28%;
@@ -802,6 +822,18 @@ input:focus {outline:none;}
 		display : inline;
 	}
   }
+  @media (min-width:300px) and (max-width:700px){
+	  .article-list > .article-writerAndTitle > span{
+			width : 140px;
+			display:block;
+			overflow:hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.article-title{
+			font-size : 18px;
+		}
+  }
   @media (min-width:240px) and (max-width:700px){
   	.article_list_box > div > div {
   		width : 43%;
@@ -836,7 +868,18 @@ input:focus {outline:none;}
 	.ball5, .ball6{
 		display : inline;
 	}
-	
+  }
+  @media (min-width:240px) and (max-width:300px){
+	  .article-list > .article-writerAndTitle > span{
+			width : 100px;
+			display:block;
+			overflow:hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.article-title{
+			font-size : 18px;
+		}
   }
   @media (min-width:250px) and (max-width:1100px){
   	main{
@@ -855,7 +898,7 @@ input:focus {outline:none;}
 		margin-top: 50px;
 	}
   }
-    @media (min-width:250px) and (max-width:800px){
+    @media (min-width:250px) and (max-width:810px){
   	.list__banner {
   		background-image: url("../img/list-mobile.jpg");
 	  	height : 500px;
@@ -885,7 +928,7 @@ input:focus {outline:none;}
   	.article-list > .article-writerAndTitle{
   		width : 45%;
   	}
-  	.article-list > .article-regDate{
+  	.article-list > .article-inform{
   		width :35%;
   	}
   	.article-list > .article-num > span{

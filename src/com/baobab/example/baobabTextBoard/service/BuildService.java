@@ -31,10 +31,15 @@ public class BuildService {
 		Util.copyFolder("fonts", "site/fonts");
 
 		loadDisqusData();
+		loadDataFromGa4Data();
 
 		buildIndexPage();
 		buildArticleListPages();
 		buildArticlesDetailPage();
+	}
+
+	private void loadDataFromGa4Data() {
+		Container.googleAnalyticsApiService.updatePageHits();
 	}
 
 	private void loadDisqusData() {
@@ -135,11 +140,13 @@ public class BuildService {
 				mainContent.append("<span class=\"article-" + (k) + "\">" + roman + "</span>");
 				mainContent.append("</div>");
 				mainContent.append("<div class=\"article-writerAndTitle\">");
-				mainContent.append("<span class=\"article-title\">" + article.title + "</span>");
+				mainContent.append("<span class=\"article-title\">" + article.title + " [" + article.replyCount + "]</span>");
 				mainContent.append("<span class=\"article-writer\">" + article.extra__writer + "</span>");
 				mainContent.append("</div>");
-				mainContent.append("<div class=\"article-regDate\">");
+				mainContent.append("<div class=\"article-inform flex-column\">");
 				mainContent.append("<span>" + article.fRegDate + "</span> ");
+				mainContent.append("<span class=\"article-like\"> Likes : " + article.like + "</span> ");
+				mainContent.append("<span class=\"article-view\"> Viewes : " + article.hitsCount + "</span> ");
 				mainContent.append("</div>");
 				mainContent.append("</a>");
 			}

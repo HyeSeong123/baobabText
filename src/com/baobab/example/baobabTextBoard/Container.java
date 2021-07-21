@@ -9,6 +9,7 @@ import com.baobab.example.baobabTextBoard.controller.MemberController;
 import com.baobab.example.baobabTextBoard.service.ArticleService;
 import com.baobab.example.baobabTextBoard.service.BuildService;
 import com.baobab.example.baobabTextBoard.service.DisqusApiService;
+import com.baobab.example.baobabTextBoard.service.GoogleAnalyticsApiService;
 import com.baobab.example.baobabTextBoard.service.MemberService;
 import com.baobab.example.baobabTextBoard.session.Session;
 
@@ -19,6 +20,7 @@ public class Container {
 	public static MemberService memberService;
 	public static BuildService buildService;
 	public static DisqusApiService disqusApiService;
+	public static GoogleAnalyticsApiService googleAnalyticsApiService;
 	
 	public static Controller articleController;
 	public static Controller memberController;
@@ -27,6 +29,7 @@ public class Container {
 	public static Session session;
 	
 	public static AppConfig config;
+	
 
 	static {
 		config = new AppConfig();
@@ -35,6 +38,7 @@ public class Container {
 		
 		session = new Session();
 		
+		googleAnalyticsApiService = new GoogleAnalyticsApiService();
 		disqusApiService = new DisqusApiService();
 		memberService = new MemberService();
 		articleService = new ArticleService();

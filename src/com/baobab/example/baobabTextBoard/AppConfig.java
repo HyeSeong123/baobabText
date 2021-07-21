@@ -10,4 +10,7 @@ public class AppConfig {
 	public String getDisqusForumName() {
 		return "baobabblog210721";
 	}
+	public String getGa4PropertyId() {
+		return "276475278";
+	}
 }

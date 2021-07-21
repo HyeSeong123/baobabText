@@ -64,5 +64,8 @@ public class ArticleService {
 		return articleDao.getForPrintArticlesByBoardNum(0);
 	}
 
-
+	public void updatePageHits() {
+		articleDao.updatePageHits();
+	}
+	
 }
