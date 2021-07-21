@@ -461,7 +461,7 @@ public class BuildService {
 			Article article = (Article) relObj;
 			siteName = article.title;
 			siteSubject = article.title;
-			siteDescription = article.body;
+			siteDescription = article.title;
 			pageName = "게시물_" + siteName;
 			siteDescription = siteDescription.replaceAll("[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]", "");
 		}

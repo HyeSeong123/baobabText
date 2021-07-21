@@ -12,8 +12,10 @@ public class App {
 		while (true) {
 			System.out.println("명령어) ");
 			String cmd = sc.nextLine();
-
+			// 집
 			MysqlUtil.setDBInfo("127.0.0.1", "sbsst", "sbs123414", "baobabTextBoard");
+			// 회사
+			MysqlUtil.setDBInfo("127.0.0.1", "codingsepo", "coding123414", "baobabTextBoard");
 
 			boolean needToExit = false;
 
