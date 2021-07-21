@@ -1,0 +1,121 @@
+<main>
+	<div>
+		<section id="article-list-wrap" class="article-list-topInner">
+		 <div class="search">
+		   <form onsubmit="return false">
+		      <input type="text" placeholder="검색어를 입력하세요">
+		      <button></button>
+		    </form>
+		  </div>
+		</section>
+		
+		<section class="article-list-box">
+		  <div class="list-ad list-ad-left bd-red">광고</div>
+		  	
+		  	<header>
+		  		<div>
+		  			<div class="article-list__cell-id">번호</div>
+		  			<div class="article-list__cell-regDate">날짜</div>
+		  			<div class="article-list__cell-writer">작성자</div>
+		  			<div class="article-list__cell-title">제목</div>
+		  		</div>
+		  	</header>
+		  	<div class="main">
+		  		<div v-for="article int filtered">
+		  			<div class="article-list__cell-id">{{article.id}}</div>
+		  			<div class="article-list__cell-regDate">{{article.regDate}}</div>
+		  			<div class="article-list__cell-writer">{{article.writer}}</div>
+		  			<div class="article-list__cell-title">
+		  				<a :href="'article_" + article.id + '.html'" target="_blank" class="hover-underline">{{article.title}}</a>
+		  			</div>
+		  			
+		  		</div>
+		  	</div>
+		</div>
+		  	
+		  	
+		  <div class="list-ad list-ad-right bd-red">광고</div>
+		</section>
+		
+		<ul class="page_box flex flex-jc-c">
+			${list__page}
+		</ul>
+	</main>
+	<script>
+		const articleList = [];
+	    var height = $('.list__banner').innerHeight();
+	    if(window.innerWidth > 900){
+            $('main').css('padding-top',height-50);
+        } else if ( window.innerWidth < 900 && window.innerWidth > 330 ) {
+            $('main').css('padding-top',height-30);
+        } else if ( window.innerWidth < 330 && window.innerWidth > 300) {
+	        $('main').css('padding-top',height-90);
+	    } else if ( window.innerWidth < 300 && window.innerWidth > 250) {
+	        $('main').css('padding-top',height-150);
+	    }
+	    $(window).resize(function(){
+	        height = $('.list__banner').innerHeight();
+	        if(window.innerWidth > 900){
+	            $('main').css('padding-top',height-50);
+	        } else if ( window.innerWidth < 900 && window.innerWidth > 330 ) {
+	            $('main').css('padding-top',height-30);
+	        } else if ( window.innerWidth < 330 && window.innerWidth > 300) {
+		        $('main').css('padding-top',height-90);
+		    } else if ( window.innerWidth < 300 && window.innerWidth > 250) {
+		        $('main').css('padding-top',height-150);
+		    }
+	         
+	    })
+	$.get(
+		'https://api.github.com/repos/vuejs/vue/commits?per_page=20&sha=master',
+		{},
+		function(data) {
+				data.forEach((row, index) => {
+					console.log(row);
+					
+					const article = {
+							num : index+1,
+							regDate : row.commit.author.date,
+							writer : row.commit.author.name,
+							title : row.commit.message,
+							body : row.commit.message
+					};
+					articleList.push(article);
+				})
+		},
+		'json'
+	);
+const articleListBoxVue = new Vue({
+	el : "#article-list-wrap",
+	data: {
+		articleList: articleList,
+		searchKeyword: ''
+	},
+	methods: {
+		searchKeywordInputed: _.debounce(function(e) {
+			this.searchKeyword = e.target.value;
+		}, 5000)
+	},
+	computed: {
+		filterKey: function() {
+			return this.searchKeyword.toLowerCase();
+		},
+		filtered: function(){
+			if (this.filterKey.length == 0){
+				return this.articleList;
+			}
+			
+			return this.articleList.filter((row) => {
+				const keys = ['title', 'writer', 'body', 'regDate'];
+				const match = keys.some((key) => {
+					if (row[key].toLowerCase().indexOf(this.filterKey) > -1){
+						return true;
+					}
+				});
+			return match;
+			});
+		}
+	}
+});
+	</script>
+</div>

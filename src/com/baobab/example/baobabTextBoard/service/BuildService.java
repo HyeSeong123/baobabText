@@ -146,7 +146,7 @@ public class BuildService {
 				mainContent.append("<div class=\"article-inform flex-column\">");
 				mainContent.append("<span>" + article.fRegDate + "</span> ");
 				mainContent.append("<span class=\"article-like\"> Likes : " + article.like + "</span> ");
-				mainContent.append("<span class=\"article-view\"> Viewes : " + article.hitsCount + "</span> ");
+				mainContent.append("<span class=\"article-view\"> Views : " + article.hitsCount + "</span> ");
 				mainContent.append("</div>");
 				mainContent.append("</a>");
 			}
