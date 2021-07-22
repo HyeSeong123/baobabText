@@ -267,10 +267,7 @@ $(window).resize(function(){
 	if(win_width >= 1000){
 	ball_end = -2;
 	}
-	if(win_width >= 700 && win_width < 1000){
-		ball_end = -3;
-	}
-	if(win_width >= 240 && win_width < 700){
+	if(win_width >= 240 && win_width < 900){
 		ball_end = -4;
 	}
 	gsap.to('.list_slide',{

@@ -500,7 +500,7 @@ public class BuildService {
 		sb.append(head);
 
 		List<Article> articles = articleService.getArticles();
-		for (int i = 0; i < articles.size(); i++) {
+		for (int i = 0; i < 8; i++) {
 			Article article = articles.get(i);
 			webPrograms.append("<div class=\"list_slide list_slide" + (i + 1) + "\">");
 			webPrograms.append("<a href=\"article_detail_" + article.num + ".html\">");
