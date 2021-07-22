@@ -1187,8 +1187,8 @@ input:focus {outline:none;}
   	width : 80%;
   	margin : 0 auto;
   }
-  .map_wrap > h5,
-  .map_wrap > span{
+  .map_wrap h5,
+  .map_wrap span{
   	color : black !important;
   }
   @media (min-width:200px) and (max-width:1350px){
