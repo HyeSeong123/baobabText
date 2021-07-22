@@ -492,7 +492,7 @@ public class BuildService {
 	private void buildIndexPage() {
 		StringBuilder sb = new StringBuilder();
 
-		String head = getHeadHtml("홈");
+		String head = getHeadHtml("바오밥 블로그");
 		String foot = Util.getFileContents("template/foot.html");
 		String mainHtml = Util.getFileContents("template/index.html");
 		StringBuilder webPrograms = new StringBuilder();
