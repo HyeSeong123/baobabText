@@ -377,7 +377,7 @@ public class BuildService {
 		List<Board> boards1 = articleService.getBoardsByDepth(1);
 		List<Board> boards2 = articleService.getBoardsByDepth(2);
 
-		if (pageName.equals("홈")) {
+		if (pageName.equals("바오밥 블로그")) {
 			mainBannerContentHtml.append("<div class=\"main__banner\">");
 			mainBannerContentHtml.append("<div class=\"height-100p flex flex-ai-c\">");
 			mainBannerContentHtml.append("<strong>");
