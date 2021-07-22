@@ -1133,7 +1133,7 @@ input:focus {outline:none;}
   {
   	width:35%;
   }
-  /* 토스트 UI 설정 변경 시작 */
+  토스트 UI 설정 변경 시작
   .viewer{
   	width : 90%;
   }
@@ -1186,6 +1186,10 @@ input:focus {outline:none;}
   .article-detail__comment {
   	width : 80%;
   	margin : 0 auto;
+  }
+  .map_wrap > h5,
+  .map_wrap > span{
+  	color : black !important;
   }
   @media (min-width:200px) and (max-width:1350px){
   	.numAndTitle {
