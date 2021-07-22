@@ -1191,6 +1191,11 @@ input:focus {outline:none;}
   .blackBoard-inner .map_wrap .info span{
   	color : black !important;
   }
+  .map_wrap > div > div > div > div > div > div > div{
+   	color : black;
+   	font-weight : bold;
+  }
+  
   @media (min-width:200px) and (max-width:1350px){
   	.numAndTitle {
   		margin-top : 10%;
