@@ -1089,29 +1089,29 @@ input:focus {outline:none;}
    {
   	border-collapse: collapse;
   }
- table > thead,
+ .article-list-box table > thead,
  .articleList_num
   {
  	background-color : #2F792D;
  	color : white;
  }
- table > tbody{
+ .article-list-box table > tbody{
  	background-color : #cfcfcf;
  	color : black;
  }
- table > tbody > tr {
+ .article-list-box table > tbody > tr {
  	cursor: pointer;
  }
- table > tbody > tr > td{
+ .article-list-box table > tbody > tr > td{
  	transition : all 0.5s;
  	
  }
- table > tbody > tr > td > span{
+ .article-list-box table > tbody > tr > td > span{
 	width : 100%;
 	text-align: center;
     display : block;
  }
- table > tbody > tr:hover > td:not(:first-child) {
+ .article-list-box table > tbody > tr:hover > td:not(:first-child) {
  	background-color : #AEAEAE;
  	color : white;
  }
@@ -1122,14 +1122,14 @@ input:focus {outline:none;}
   	border : 6px solid white;
   	
   }
-  tbody > tr> td:first-child{
+  .article-list-box tbody > tr> td:first-child{
   	width:10%;
   }
-  tbody > tr> td:nth-child(3){
+  .article-list-box tbody > tr> td:nth-child(3){
   	width:20%;
   }
-  tbody > tr > td:nth-child(2),
-  tbody > tr > td:nth-child(4)
+  .article-list-box tbody > tr > td:nth-child(2),
+  .article-list-box tbody > tr > td:nth-child(4)
   {
   	width:35%;
   }
