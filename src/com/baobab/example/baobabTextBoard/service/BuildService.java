@@ -469,7 +469,7 @@ public class BuildService {
 			siteName = article.title;
 			siteSubject = article.title;
 			siteDescription = article.title;
-			pageName = "게시물_" + siteName;
+			pageName = siteName + "-바오밥 블로그";
 			siteDescription = siteDescription.replaceAll("[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]", "");
 		}
 		head = head.replace("${title-bar__content}", pageName);
