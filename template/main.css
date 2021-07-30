@@ -1231,6 +1231,11 @@ input:focus {outline:none;}
   } 
   /* 상세페이지 메인 끝*/
   
+  /* 컬러 스크립터 */
+  .colorscripter-code{
+  	margin-bottom : 30px;
+  }
+  /* 컬러 스크립터 */
   /* 메인 끝 */
 
 /* 푸터 시작 */
