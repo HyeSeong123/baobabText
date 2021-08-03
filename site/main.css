@@ -1162,6 +1162,8 @@ input:focus {outline:none;}
   	background-color : #2A751C !important;
   	padding : 20px;
   	border : 2px dashed yellow !important;
+  	width : 80%;
+  	word-break : break-all;
   }
   .tui-editor-contents pre code{
   	display : block !important;
@@ -1226,7 +1228,8 @@ input:focus {outline:none;}
   		width : 100%;
   	}
   	.toastui-editor-contents pre {
-  	width : 70%;
+  		width : 70%;
+  		word-break : break-all;
   	}
   } 
   /* 상세페이지 메인 끝*/

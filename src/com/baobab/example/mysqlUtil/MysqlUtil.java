@@ -73,7 +73,7 @@ public class MysqlUtil {
 			Connection connection = null;
 
 			String url = "jdbc:mysql://" + dbHost + "/" + dbName
-					+ "?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull&connectTimeout=60";
+					+ "?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull&connectTimeout=80";
 			try {
 				connection = DriverManager.getConnection(url, dbLoginId, dbLoginPw);
 				connections.put(currentThreadId, connection);
