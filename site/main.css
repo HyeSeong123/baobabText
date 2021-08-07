@@ -260,7 +260,9 @@ ul,li,body{
   top: 26px;
   left: 9px;
 }
-
+.margin-bottom-20p{
+	margin-bottom : 20px;
+}
 .top-menu__pc-menu{
   width : 100%;
   position: relative;
@@ -1173,6 +1175,11 @@ input:focus {outline:none;}
   }
   #text{
   	color : white !important;
+  }
+  .article_content table{
+  	border-collapse: collapse;
+  	width: 75%;
+  	border : 1px solid white;
   }
   .toast-ui-codepen-plugin-wrap iframe{
   	width : 100%;

@@ -8,6 +8,7 @@ import com.baobab.example.baobabTextBoard.Container;
 import com.baobab.example.baobabTextBoard.dto.Article;
 import com.baobab.example.baobabTextBoard.dto.Board;
 import com.baobab.example.baobabTextBoard.util.Util;
+import com.google.api.client.http.HttpRequest;
 
 public class BuildService {
 
@@ -276,11 +277,18 @@ public class BuildService {
 
 	private void buildArticlesDetailPage() {
 		List<Article> articles = articleService.getArticles();
-
+		
 		String bodyTemplate = Util.getFileContents("template/article_detail.html");
 		String foot = Util.getFileContents("template/foot.html");
 
 		for (Article article : articles) {
+			int maxListNum = article.orderNum + 3;
+			int minListNum = article.orderNum - 3;
+			if(minListNum < 0) {
+				minListNum = 0;
+			}
+			
+			List<Article> articles1 = articleService.getForPrintArticlesByBoardNumAndNum(article.boardNum, maxListNum, minListNum);
 			StringBuilder sb = new StringBuilder();
 			String head = getHeadHtml("article_detail", article);
 			sb.append(head);
@@ -303,8 +311,14 @@ public class BuildService {
 			StringBuilder listContent = new StringBuilder();
 			int i = article.num;
 			int emoge = 0;
+			int articleMax = 0;
 			String newEmoge = null;
-			for (Article article1 : articles) {
+			for (int k=articles1.size()-1; k >= 0; k--) {
+				Article article1 = articles1.get(k);
+				if(articleMax == 6) {
+					break;
+				}
+				articleMax ++;
 				if (emoge == 7) {
 					emoge = 0;
 				}
@@ -332,22 +346,20 @@ public class BuildService {
 					newEmoge = "📕";
 					break;
 				}
-
-				if (i >= (article1.num - 3) && i <= (article1.num + 3)) {
-					if (article.num == article1.num) {
-						listContent.append("<tr class=\"selected\" onClick=location.href=\"article_detail_"
-								+ article1.num + ".html\">");
-					} else {
-						listContent.append("<tr onClick=location.href=\"article_detail_" + article1.num + ".html\">");
-					}
-					listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge + "</td>");
-					listContent.append("<td class=\"articleList_title\"" + "><span>" + article1.title + "</span></td>");
-					listContent.append(
-							"<td class=\"articleList_writer\"" + "><span>" + article1.extra__writer + "</span></td>");
-					listContent.append(
-							"<td class=\"articleList_regDate\"" + "><span>" + article1.fRegDate + "일</span></td>");
-					listContent.append("</tr>");
+				if (article.num == article1.num) {
+					listContent.append("<tr class=\"selected\" onClick=location.href=\"article_detail_"
+							+ article1.num + ".html\">");
+				} else {
+					listContent.append("<tr onClick=location.href=\"article_detail_" + article1.num + ".html\">");
 				}
+				listContent.append("<td class=\"articleList_num\"" + ">" + newEmoge + "</td>");
+				listContent.append("<td class=\"articleList_title\"" + "><span>" + article1.title + "</span></td>");
+				listContent.append(
+						"<td class=\"articleList_writer\"" + "><span>" + article1.extra__writer + "</span></td>");
+				listContent.append(
+						"<td class=\"articleList_regDate\"" + "><span>" + article1.fRegDate + "일</span></td>");
+				listContent.append("</tr>");
+			
 			}
 			body = body.replace("${article_list_replace}", listContent.toString());
 

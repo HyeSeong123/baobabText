@@ -67,5 +67,9 @@ public class ArticleService {
 	public void updatePageHits() {
 		articleDao.updatePageHits();
 	}
+
+	public List<Article> getForPrintArticlesByBoardNumAndNum(int boardNum, int maxNum, int minNum) {
+		return articleDao.getForPrintArticlesByBoardNumAndNum(boardNum, maxNum, minNum);
+	}
 	
 }

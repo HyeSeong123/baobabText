@@ -13,6 +13,7 @@ public class Article {
 	public int hitsCount;
 	public int replyCount;
 	public int like;
+	public int orderNum;
 	
 	public String extra__writer;
 	public String extra__board;
@@ -42,6 +43,7 @@ public class Article {
 		this.hitsCount = (int) articleMap.get("hitsCount");
 		this.replyCount = (int) articleMap.get("replyCount");
 		this.like = (int) articleMap.get("like");
+		this.orderNum = (int) articleMap.get("orderNum");
 		if(articleMap.containsKey("extra__writer")) {
 			this.extra__writer = (String) articleMap.get("extra__writer");
 		}
@@ -57,10 +59,9 @@ public class Article {
 	public String toString() {
 		return "Article [num=" + num + ", regDate=" + regDate + ", updateDate=" + updateDate + ", memberNum="
 				+ memberNum + ", boardNum=" + boardNum + ", title=" + title + ", body=" + body + ", hitsCount="
-				+ hitsCount + ", replyCount=" + replyCount + ", like=" + like + ", extra__writer=" + extra__writer
-				+ ", extra__board=" + extra__board + ", fRegDate=" + fRegDate + "]";
+				+ hitsCount + ", replyCount=" + replyCount + ", like=" + like + ", orderNum=" + orderNum
+				+ ", extra__writer=" + extra__writer + ", extra__board=" + extra__board + ", fRegDate=" + fRegDate
+				+ "]";
 	}
-
-
 
 }
