@@ -174,7 +174,7 @@ public class ArticleDao {
 		sql.append("FROM article AS A");
 		sql.append("LEFT JOIN member AS M");
 		sql.append("ON A.memberNum = M.num");
-		sql.append("LEFT JOIN member AS B");
+		sql.append("LEFT JOIN board AS B");
 		sql.append("ON A.boardNum = B.num");
 		if (boardNum != 0) {
 			sql.append("WHERE A.boardNum = ?", boardNum);
