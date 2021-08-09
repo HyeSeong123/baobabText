@@ -904,7 +904,9 @@ input:focus {outline:none;}
   	.list__banner {
   		background-image: url("../img/list-mobile.jpg");
 	  	height : 500px;
-	  	font-size: 25px;
+	}
+	.list__banner > div > strong{
+		font-size: 25px;
 	}
 	.article-list-topInner > .search > form > input[type=text]{
 	  width : 300px;
@@ -1028,8 +1030,9 @@ input:focus {outline:none;}
   .detail__article-content{
     margin-left : 15px;
     margin-top : 20px;
-    font-size : 20px;
+    font-size : 14px;
     line-height: 40px;
+    width : 90%;
   }
   .numAndTitle .star{
     transform : rotate(45deg);
@@ -1212,7 +1215,7 @@ input:focus {outline:none;}
   }
   @media (min-width:200px) and (max-width:800px){
   	.numAndTitle {
-  		font-size : 35px;
+  		font-size : 25px;
   	}
    .numAndTitle .star{
 	    display : none;
