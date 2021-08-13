@@ -41,7 +41,7 @@ function Article_menuInit(){
 	    if(thisis.text().indexOf('Web Programs') != -1){
 	        height = 240;
 	    } else if(thisis.text().indexOf('DataBase') != -1){
-	        height = 60;
+	        height = 120;
 	    } else if(thisis.text().indexOf('Server') != -1){
 	        height = 60;
 	    } else if(thisis.text().indexOf('Free') != -1){
