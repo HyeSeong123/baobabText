@@ -367,7 +367,7 @@ ul,li,body{
     color : white;
     font-family: 'Lora', serif;
     text-align: center;
-    margin : 20px 0;
+    margin-top: 20px;
   }
   .top-menu__mobile-menu ul > li > a{
     display: block;
@@ -383,16 +383,8 @@ ul,li,body{
     transition : all 0.5s;
   }
   .top-menu__mobile-menu ul > li > ul{
-    visibility: hidden;
-    height: 0;
-    display : flex;
-    flex-direction: column;
-    padding-top : 10px;
-    transition : height 0.5s, visibility 0.2s;
-  }
-  .top-menu__mobile-menu ul > li.subOpen > ul{
-    visibility: visible;
-  }
+	display : none;
+  }  
   .top-menu__mobile-menu > ul > li.subOpen > a > .arrow-down{
     transform: rotate( -90deg );
     transition : all 0.3s;

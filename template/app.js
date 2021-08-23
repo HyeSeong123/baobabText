@@ -34,28 +34,18 @@ function Article_menuInit(){
 	        }
 		});
 	});
-	var subOpenToggle = 0;
+	
 	 $('.top-menu__mobile-menu > ul > li > a').click(function(){
-	     var height;
-	     var thisis = $(this);
-	    if(thisis.text().indexOf('Web Programs') != -1){
-	        height = 240;
-	    } else if(thisis.text().indexOf('DataBase') != -1){
-	        height = 120;
-	    } else if(thisis.text().indexOf('Server') != -1){
-	        height = 60;
-	    } else if(thisis.text().indexOf('Free') != -1){
-	        height = 60;
-	    }
-	    thisis.closest('ul>li').toggleClass('subOpen');
-	    if(thisis.parent().hasClass('subOpen')){
-	    	thisis.parent().children('ul').css('height', height);
-	        subOpenToggle = 1;
-	    } else if(thisis.parent().hasClass('subOpen') == false){
-	        height = 0;
-	        thisis.parent().children('ul').css('height', height);
-	        subOpenToggle = 0;
-	    }
+	 	var thisUl = $(this).siblings('ul');
+	 	
+	 	if(!thisUl.parent('li').hasClass('subOpen') && ! thisUl.is(':animated')){
+			thisUl.stop().slideDown(600, 'swing');
+			thisUl.parent('li').addClass('subOpen');
+		}
+		else if (thisUl.parent('li').hasClass('subOpen') && ! thisUl.is(':animated')){
+			thisUl.stop().slideUp(600, 'swing');
+			thisUl.parent('li').removeClass('subOpen');
+		}
 	 });
 }
 
