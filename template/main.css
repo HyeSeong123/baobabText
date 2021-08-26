@@ -294,6 +294,9 @@ ul,li,body{
   align-items: center;
   justify-content: center;
 }
+.top-menu__pc-menu > ul > li > ul > li{
+	height : auto;
+}
 .top-menu__pc-menu ul > li > a {
   color : white;
   display: block;
@@ -310,9 +313,11 @@ ul,li,body{
   left : 0;
   background-color : rgba(0,0,0,0.6);
 }
+/*
 .top-menu__pc-menu > ul > li:hover > ul{
   display: block;
 }
+*/
 .top-menu__pc-menu ul > li > a::after{
   content : "";
   background-color: white;

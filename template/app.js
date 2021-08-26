@@ -1,3 +1,19 @@
+function Article_pc_menuInit(thisUl,num){
+	if(num == 1){
+		thisUl.stop().slideDown();	
+	}
+	if(num == 2){
+		thisUl.stop().slideUp();	
+	}
+}
+$('.top-menu__pc-menu > ul > li').hover(function(){
+	var this1 = $(this).find('ul');
+	Article_pc_menuInit(this1,1);
+});
+$('.top-menu__pc-menu > ul > li').mouseleave(function(){
+	var this1 = $(this).find('ul');
+	Article_pc_menuInit(this1,2);
+});
 function Article_menuInit(){
 	    var height = $('.main__banner').innerHeight();
 	    var main = $('main');
