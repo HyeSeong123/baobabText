@@ -366,7 +366,9 @@ $(".searchInput").on("propertychange change keyup paste input", function() {
 			'article_list_mysql.json',
 			{},
 			function(data){
-				console.log(data);
+				data.forEach((row,index) => {
+					console.log(row);
+				})
 			},
 			'json'
 		);
