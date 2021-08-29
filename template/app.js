@@ -366,10 +366,18 @@ $(".searchInput").on("propertychange change keyup paste input", function() {
 			'article_list_mysql.json',
 			{},
 			function(data){
-				data.forEach((row,index) => {
-					console.log(row);
-					console.log(index);
-				})
+				data.forEach((row,index) =>{
+	              const article = {
+	                num: index + 1,
+	                regDate : row.fRegDate,
+	                writer: row.extra__writer,
+	                title: row.title,
+	                hitsCount: row.hitsCount,
+	                replyCount: row.replyCount,
+	                like: row.like
+	              };
+	              console.log(article);
+	            })
 			},
 			'json'
 		);
