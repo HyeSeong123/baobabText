@@ -362,25 +362,6 @@ function btnUp_action(){
 var oldVal = $('.searchInput');
 $(".searchInput").on("propertychange change keyup paste input", function() {
 	setTimeout(function() {
-		$.get( 
-			'article_list_mysql.json',
-			{},
-			function(data){
-				data.forEach((row,index) =>{
-	              const article = {
-	                num: index + 1,
-	                regDate : row.fRegDate,
-	                writer: row.extra__writer,
-	                title: row.title,
-	                hitsCount: row.hitsCount,
-	                replyCount: row.replyCount,
-	                like: row.like
-	              };
-	              console.log(article);
-	            })
-			},
-			'json'
-		);
 		var currentVal = $('.searchInput').val();
 		if(currentVal == oldVal) {
 			return;
