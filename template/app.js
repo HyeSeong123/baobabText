@@ -363,7 +363,7 @@ var oldVal = $('.searchInput');
 $(".searchInput").on("propertychange change keyup paste input", function() {
 	setTimeout(function() {
 		$.get( 
-			'article_list_mysql_1.json',
+			'article_list_mysql.json',
 			{},
 			function(data){
 				console.log(data);
