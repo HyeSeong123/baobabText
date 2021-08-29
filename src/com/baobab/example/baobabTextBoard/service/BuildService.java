@@ -236,12 +236,14 @@ public class BuildService {
 
 	private void buildArticleListPages() {
 		List<Board> boards = articleService.getBoards();
-
+		
 		int itemsInAPage = 10;
 		int pageBoxMenuSize = 10;
 
 		for (Board board : boards) {
 			List<Article> articles = articleService.getForPrintArticlesByBoardNum(board.num);
+			String jsonText = Util.getJsonText(articles);
+			Util.writeFile("site/article_list_" + board.code + ".json" , jsonText);
 			int articlesCount = articles.size();
 			int totalPage = (int) Math.ceil((double) articlesCount / itemsInAPage);
 

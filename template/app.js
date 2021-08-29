@@ -362,6 +362,14 @@ function btnUp_action(){
 var oldVal = $('.searchInput');
 $(".searchInput").on("propertychange change keyup paste input", function() {
 	setTimeout(function() {
+		$.get( 
+			'article_list_mysql_1.json',
+			{},
+			function(data){
+				console.log(data);
+			},
+			'json'
+		);
 		var currentVal = $('.searchInput').val();
 		if(currentVal == oldVal) {
 			return;
