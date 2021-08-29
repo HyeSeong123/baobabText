@@ -368,6 +368,7 @@ $(".searchInput").on("propertychange change keyup paste input", function() {
 			function(data){
 				data.forEach((row,index) => {
 					console.log(row);
+					console.log(index);
 				})
 			},
 			'json'
