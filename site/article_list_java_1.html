@@ -154,46 +154,41 @@
 					<li><a style="cursor:pointer;"><span>Web Programs</span><span class="arrow-down"></span></a><ul><li><a href="article_list_java_1.html">Java</a></li><li><a href="article_list_js_1.html">JavaScript</a></li><li><a href="article_list_spring_1.html">Spring</a></li><li><a href="article_list_HC_1.html">HTML/CSS</a></li><li><a href="article_list_php_1.html">PHP</a></li></ul></li><li><a style="cursor:pointer;"><span>DataBase</span><span class="arrow-down"></span></a><ul><li><a href="article_list_mysql_1.html">Mysql</a></li><li><a href="article_list_oracle_1.html">Oracle</a></li></ul></li><li><a style="cursor:pointer;"><span>Server</span><span class="arrow-down"></span></a><ul><li><a href="article_list_centos_1.html">CentOs</a></li></ul></li><li><a style="cursor:pointer;"><span>Free</span><span class="arrow-down"></span></a><ul><li><a href="article_list_daily_1.html">Daily</a></li></ul></li>
 				</ul>
 			</div>
-		</header><main>
-	<div>
+		</header><script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<main>
+	<div v-cloak id="article-list-wrap">
 		<section class="article-list-topInner">
-		 <div class="search">
-		   <form onsubmit="return false">
-		      <input class="searchInput" type="text" placeholder="검색어를 입력하세요">
-		      <button></button>
-		    </form>
-		  </div>
+			<div class="search">
+				<form onsubmit="return false">
+					<input @input="searchKeywordInputed" class="searchInput" type="text" placeholder="검색어를 입력하세요" :value="searchKeyword">
+					<button></button>
+				</form>
+			</div>
 		</section>
-		
+
 		<section class="article-list-box">
-		  <div class="list-ad list-ad-left">
+			<div class="list-ad list-ad-left">
 				<!-- 반응형 왼쪽 광고 -->
-				<ins class="adsbygoogle"
-				     style="display:block"
-				     data-ad-client="ca-pub-6509950454554885"
-				     data-ad-slot="1169392388"
-				     data-ad-format="auto"
-				     data-full-width-responsive="true"></ins>
-		  </div>
-		  	
-		  	<a href="article_detail_14.html"class="article-list flex"><div class="article-num"><span class="article-1">I</span></div><div class="article-writerAndTitle"><span class="article-title">자바 이미지 리사이징 및 용량 낮추기 [0]</span><span class="article-writer">방혜성</span></div><div class="article-inform flex-column"><span>2021-07-31</span> <span class="article-like"> Likes : 0</span> <span class="article-view"> Views : 2</span> </div></a><a href="article_detail_12.html"class="article-list flex"><div class="article-num"><span class="article-2">II</span></div><div class="article-writerAndTitle"><span class="article-title">자바 폴더 생성 [0]</span><span class="article-writer">방혜성</span></div><div class="article-inform flex-column"><span>2021-07-30</span> <span class="article-like"> Likes : 0</span> <span class="article-view"> Views : 2</span> </div></a>
-		  	
-		  <div class="list-ad list-ad-right">
-			<!-- 반응형 오른쪽 -->
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-6509950454554885"
-			     data-ad-slot="3412412347"
-			     data-ad-format="auto"
-			     data-full-width-responsive="true"></ins>
-		  </div>
+				<ins class="adsbygoogle" style="display: block"
+					data-ad-client="ca-pub-6509950454554885" data-ad-slot="1169392388"
+					data-ad-format="auto" data-full-width-responsive="true"></ins>
+			</div>
+
+			<div v-for="article in filtered"><a :href="'article_' + article.num + '.html'" class="article-list flex"><div class="article-num"><span class="article-1">{{article.count}}</span></div><div class="article-writerAndTitle"><span class="article-title">{{article.title}}[{{article.replyCount}}]</span><span class="article-writer">{{article.writer}}</span></div><div class="article-inform flex-column"><span>{{article.regDate}}</span> <span class="article-like"> Likes : {{article.like}}</span> <span class="article-view"> Views : {{article.hitsCount}}</span> </div></a></div>
+
+			<div class="list-ad list-ad-right">
+				<!-- 반응형 오른쪽 -->
+				<ins class="adsbygoogle" style="display: block"
+					data-ad-client="ca-pub-6509950454554885" data-ad-slot="3412412347"
+					data-ad-format="auto" data-full-width-responsive="true"></ins>
+			</div>
 		</section>
-		
-		<ul class="page_box flex flex-jc-c">
-			<li><a href="article_list_java_1.html" class="flex flex-ai-c article-page-menu__link--selected">1</a></li>
-		</ul>
-	</main>
-	<script>
+
+	</div>
+</main>
+<script>
 		    var height = $('.list__banner').innerHeight();
 		    if(window.innerWidth > 900){
 	            $('main').css('padding-top',height-50);
@@ -217,6 +212,69 @@
 			    }
 		         
 		    })
+	</script>
+	
+	<script>
+	const articleList = [];
+	var currentUrl = window.location.href;
+	var newUrl = currentUrl.split("site/")[1];
+	var newUrl2 = newUrl.split("_")[0] + "_" + newUrl.split("_")[1] + "_" + newUrl.split("_")[2] + ".json";
+	console.log("newUrl2= " + newUrl2);
+	$.get(
+	  "https://blog.baobab612.com/" + newUrl2,
+	  {},
+	  function (data) {
+	    data.forEach((row, index) => {
+	      const article = {
+	        count: index+1,
+	        num: row.num,
+	        regDate: row.fRegDate,
+	        writer: row.extra__writer,
+	        title: row.title,
+	        like: row.like,
+	        hitsCount: row.hitsCount,
+	        replyCount: row.replyCount
+	      };
+	      articleList.push(article);
+	    });
+	    isActive : true
+	  },
+	  'json'
+	);
+
+	const articleListBoxVue = new Vue({
+	  el: "#article-list-wrap",
+	  data: {
+	    articleList: articleList,
+	    searchKeyword: ''
+	  },
+	  methods: {
+	    searchKeywordInputed: _.debounce(function (e) {
+	      this.searchKeyword = e.target.value;
+	    }, 500)
+	  },
+	  computed: {
+	    filterKey: function () {
+	      return this.searchKeyword.toLowerCase();
+	    },
+	    filtered: function () {
+	      if (this.filterKey.length == 0) {
+	        return this.articleList;
+	      }
+
+	      return this.articleList.filter((row) => {
+	        const keys = ["title", "writer", "regDate"];
+
+	        const match = keys.some((key) => {
+	          if (row[key].toLowerCase().indexOf(this.filterKey) > -1) {
+	            return true;
+	          }
+	        });
+	        return match;
+	      });
+	    }
+	  }
+	});
 	</script>
 </div>        <footer class="footer__cover flex flex-ai-c">
 

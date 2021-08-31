@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.impl.execchain.MainClientExec;
+
 import com.baobab.example.baobabTextBoard.Container;
 import com.baobab.example.baobabTextBoard.dto.Article;
 import com.baobab.example.baobabTextBoard.dto.Board;
@@ -82,143 +84,30 @@ public class BuildService {
 			end = articlesCount - 1;
 		}
 		int k = 0;
-		for (int i = start; i <= end; i++) {
-			if (k == 10) {
-				k = 0;
-			}
-			k++;
 			if (articles.size() <= 0) {
 				mainContent.append("<div>등록된 게시물이 없습니다.</div>");
 			} else if (articles.size() > 0) {
-				Article article = articles.get(i);
-
-				String link = "article_detail_" + article.num + ".html";
-
-				switch (k) {
-				case 1:
-					roman = "I";
-					break;
-
-				case 2:
-					roman = "II";
-					break;
-
-				case 3:
-					roman = "III";
-					break;
-
-				case 4:
-					roman = "IV";
-					break;
-
-				case 5:
-					roman = "V";
-					break;
-
-				case 6:
-					roman = "VI";
-					break;
-
-				case 7:
-					roman = "VII";
-					break;
-
-				case 8:
-					roman = "VIII";
-					break;
-
-				case 9:
-					roman = "XI";
-					break;
-
-				case 10:
-					roman = "X";
-					break;
-				}
-
-				mainContent.append("<a href=\"article_detail_" + article.num + ".html\"class=\"article-list flex\">");
+				mainContent.append("<div v-for=\"article in filtered\">");
+				mainContent.append("<a :href=\"\'article_' + article.num + '.html\'\" class=\"article-list flex\">");
 				mainContent.append("<div class=\"article-num\">");
-				mainContent.append("<span class=\"article-" + (k) + "\">" + roman + "</span>");
+				mainContent.append("<span class=\"article-1\">{{article.count}}</span>");
 				mainContent.append("</div>");
 				mainContent.append("<div class=\"article-writerAndTitle\">");
-				mainContent.append("<span class=\"article-title\">" + article.title + " [" + article.replyCount + "]</span>");
-				mainContent.append("<span class=\"article-writer\">" + article.extra__writer + "</span>");
+				mainContent.append("<span class=\"article-title\">{{article.title}}[{{article.replyCount}}]</span>");
+				mainContent.append("<span class=\"article-writer\">{{article.writer}}</span>");
 				mainContent.append("</div>");
 				mainContent.append("<div class=\"article-inform flex-column\">");
-				mainContent.append("<span>" + article.fRegDate + "</span> ");
-				mainContent.append("<span class=\"article-like\"> Likes : " + article.like + "</span> ");
-				mainContent.append("<span class=\"article-view\"> Views : " + article.hitsCount + "</span> ");
+				mainContent.append("<span>{{article.regDate}}</span> ");
+				mainContent.append("<span class=\"article-like\"> Likes : {{article.like}}</span> ");
+				mainContent.append("<span class=\"article-view\"> Views : {{article.hitsCount}}</span> ");
 				mainContent.append("</div>");
 				mainContent.append("</a>");
+				mainContent.append("</div>");
 			}
-		}
-
-		StringBuilder pageMenuContent = new StringBuilder();
-
-		// 토탈 페이지 계산
-		int totalPage = (int) Math.ceil((double) articlesCount / itemsInAPage);
-
-		// 현재 페이지 계산
-		if (page < 1) {
-			page = 1;
-		}
-
-		if (page > totalPage) {
-			page = totalPage;
-		}
-
-		// 현재 페이지 박스 시작, 끝 계산
-		int previousPageBoxesCount = (page - 1) / pageBoxSize;
-		int pageBoxStartPage = pageBoxSize * previousPageBoxesCount + 1;
-		int pageBoxEndPage = pageBoxStartPage + pageBoxSize - 1;
-
-		if (pageBoxEndPage > totalPage) {
-			pageBoxEndPage = totalPage;
-		}
-
-		// 이전버튼 페이지 계산
-		int pageBoxStartBeforePage = pageBoxStartPage - 1;
-		if (pageBoxStartBeforePage < 1) {
-			pageBoxStartBeforePage = 1;
-		}
-
-		// 다음버튼 페이지 계산
-		int pageBoxEndAfterPage = pageBoxEndPage + 1;
-
-		if (pageBoxEndAfterPage > totalPage) {
-			pageBoxEndAfterPage = totalPage;
-		}
-
-		// 이전버튼 노출여부 계산
-		boolean pageBoxStartBeforeBtnNeedToShow = pageBoxStartBeforePage != pageBoxStartPage;
-		// 다음버튼 노출여부 계산
-		boolean pageBoxEndAfterBtnNeedToShow = pageBoxEndAfterPage != pageBoxEndPage;
-
-		if (pageBoxStartBeforeBtnNeedToShow) {
-			pageMenuContent.append("<li><a href=\"" + getArticleListFileName(board, pageBoxStartBeforePage)
-					+ "\" class=\"flex flex-ai-c\">&lt; 이전</a></li>");
-		}
-
-		for (int i = pageBoxStartPage; i <= pageBoxEndPage; i++) {
-			String selectedClass = "";
-
-			if (i == page) {
-				selectedClass = "article-page-menu__link--selected";
-			}
-
-			pageMenuContent.append("<li><a href=\"" + getArticleListFileName(board, i) + "\" class=\"flex flex-ai-c "
-					+ selectedClass + "\">" + i + "</a></li>");
-		}
-
-		if (pageBoxEndAfterBtnNeedToShow) {
-			pageMenuContent.append("<li><a href=\"" + getArticleListFileName(board, pageBoxEndAfterPage)
-					+ "\" class=\"flex flex-ai-c\">다음 &gt;</a></li>");
-		}
 
 		String foot = Util.getFileContents("template/foot.html");
 
 		String body = bodyTemplate.replace("${article-list__main-content}", mainContent.toString());
-		body = body.replace("${list__page}", pageMenuContent.toString());
 
 		sb.append(body);
 		sb.append(foot);

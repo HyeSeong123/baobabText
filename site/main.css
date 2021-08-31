@@ -561,7 +561,6 @@ ul,li,body{
 }
 .article-list:hover .article-num span{
 	transform : rotate(360deg);
-	
 }
 .article-list:hover .article-1,
 .article-list:hover .article-2,
