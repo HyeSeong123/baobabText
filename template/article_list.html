@@ -64,7 +64,7 @@
 	console.log("currentUrl= " + currentUrl);
 	var newUrl = currentUrl.replace("https://blog.baobab612.com/");
 	console.log("newUrl= " + newUrl);
-	var newUrl2 = newUrl.split("_")[0] + "_" + newUrl.split("_")[1] + "_" + newUrl.split("_")[2] + ".json";
+	var newUrl2 = newUrl.split("_")[1] + "_" + newUrl.split("_")[2] + ".json";
 	console.log("newUrl2= " + newUrl2);
 	$.get(
 	  newUrl2,
