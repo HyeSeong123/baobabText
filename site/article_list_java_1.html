@@ -221,7 +221,7 @@
 	var newUrl2 = newUrl.split("_")[0] + "_" + newUrl.split("_")[1] + "_" + newUrl.split("_")[2] + ".json";
 	console.log("newUrl2= " + newUrl2);
 	$.get(
-	  "https://blog.baobab612.com/" + newUrl2,
+	  newUrl2,
 	  {},
 	  function (data) {
 	    data.forEach((row, index) => {
