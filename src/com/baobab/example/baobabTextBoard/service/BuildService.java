@@ -88,7 +88,7 @@ public class BuildService {
 				mainContent.append("<div>등록된 게시물이 없습니다.</div>");
 			} else if (articles.size() > 0) {
 				mainContent.append("<div v-for=\"article in filtered\">");
-				mainContent.append("<a :href=\"\'article_' + article.num + '.html\'\" class=\"article-list flex\">");
+				mainContent.append("<a :href=\"\'article_detail' + article.num + '.html\'\" class=\"article-list flex\">");
 				mainContent.append("<div class=\"article-num\">");
 				mainContent.append("<span class=\"article-1\">{{article.count}}</span>");
 				mainContent.append("</div>");

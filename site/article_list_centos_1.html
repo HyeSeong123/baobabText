@@ -176,7 +176,7 @@
 					data-ad-format="auto" data-full-width-responsive="true"></ins>
 			</div>
 
-			<div v-for="article in filtered"><a :href="'article_' + article.num + '.html'" class="article-list flex"><div class="article-num"><span class="article-1">{{article.count}}</span></div><div class="article-writerAndTitle"><span class="article-title">{{article.title}}[{{article.replyCount}}]</span><span class="article-writer">{{article.writer}}</span></div><div class="article-inform flex-column"><span>{{article.regDate}}</span> <span class="article-like"> Likes : {{article.like}}</span> <span class="article-view"> Views : {{article.hitsCount}}</span> </div></a></div>
+			<div v-for="article in filtered"><a :href="'article_detail' + article.num + '.html'" class="article-list flex"><div class="article-num"><span class="article-1">{{article.count}}</span></div><div class="article-writerAndTitle"><span class="article-title">{{article.title}}[{{article.replyCount}}]</span><span class="article-writer">{{article.writer}}</span></div><div class="article-inform flex-column"><span>{{article.regDate}}</span> <span class="article-like"> Likes : {{article.like}}</span> <span class="article-view"> Views : {{article.hitsCount}}</span> </div></a></div>
 
 			<div class="list-ad list-ad-right">
 				<!-- 반응형 오른쪽 -->
