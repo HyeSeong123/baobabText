@@ -28,7 +28,7 @@ public class App {
 					controller.doCommand(cmd);
 				}
 			}
-
+			
 			MysqlUtil.closeConnection();
 
 			if (needToExit) {
