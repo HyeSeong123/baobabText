@@ -43,11 +43,15 @@ ul,li,body{
   .con-min-width {
     min-width : 260px;
   }
-  .img-box > img{
+  .img-box > img,
+  .img-box > video
+  {
     display : block;
     width : 100%;
   }
-  .img-box1 > img{
+  .img-box1 > img,
+  .img-box1 > video
+  {
     display : block;
     width : 90%;
   }
