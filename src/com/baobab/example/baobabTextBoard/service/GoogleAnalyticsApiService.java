@@ -39,6 +39,7 @@ public class GoogleAnalyticsApiService {
 				update(pagePath, hit);
 			}
 		} catch (IOException e) {
+			
 			System.out.println("에러= " + e);
 			System.out.println("실패");
 			return false;
